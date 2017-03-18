@@ -1,0 +1,27 @@
+{
+  "name": "mom",
+  "version": "1.0.0",
+  "description": "Text Reminder Service",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kristinesterley/MOM.git"
+  },
+  "author": "Group 2",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kristinesterley/MOM/issues"
+  },
+  "homepage": "https://github.com/kristinesterley/MOM#readme",
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2",
+    "express-handlebars": "^3.0.0",
+    "mysql": "^2.13.0",
+    "sequelize": "^3.30.2"
+  }
+}

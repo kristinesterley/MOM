@@ -1,4 +1,3 @@
-
 body {
   background-color: #888;
   font-size: 20px;
@@ -26,7 +25,6 @@ h1, h2 {
   font-size: 16px;
   margin: 2px; }
 
-form.signup, form.login {
-  margin-top: 50px;
-}
-
+/* landing */
+p {
+  color: #000; }

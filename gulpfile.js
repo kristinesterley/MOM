@@ -11,7 +11,7 @@ gulp.task('serve', ['scss'], function () {
   //tell browserSync the root of server with server:{}
   browserSync.init({
     server: {
-      baseDir: './'
+      baseDir: './public/'
     },
     //these ** stars are globbing patterns that allow more than one file match per folder; here it matches any file ending with .html in root folder and any child directories
     files: ['./**/*.html'],
@@ -34,7 +34,8 @@ gulp.task('serve', ['scss'], function () {
   gulp.watch('public/assets/scss/**/*.scss', ['scss']);
   //when these files change, reload the page!
   gulp.watch('js/**/*.js').on('change', browserSync.reload);
-  gulp.watch('*.html').on('change', browserSync.reload);
+  gulp.watch('public/*.html').on('change', browserSync.reload);
+  // gulp.watch('public/*.html').on('change', browserSync.reload);
 
 });
 

@@ -1,3 +1,4 @@
+
 body {
   background-color: #888;
   font-size: 20px;
@@ -24,3 +25,8 @@ h1, h2 {
   display: inline-block;
   font-size: 16px;
   margin: 2px; }
+
+form.signup, form.login {
+  margin-top: 50px;
+}
+

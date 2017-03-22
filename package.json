@@ -23,5 +23,12 @@
     "express-handlebars": "^3.0.0",
     "mysql": "^2.13.0",
     "sequelize": "^3.30.2"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.1",
+    "gulp-notify": "^3.0.0",
+    "gulp-sass": "^3.1.0"
   }
 }

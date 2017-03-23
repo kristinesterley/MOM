@@ -59,6 +59,44 @@ function submitReminder(reminder) {
 }
 
 
+//function to call to delete a reminder
+  
+  function DeleteReminder(reminderId){
+    $.ajax({
+      method: "DELETE",
+      url: "/api/reminder/" + reminderId
+    })
+    .done(function() {
+      window.location.href="/reminder";
+    });
+
+}
+
+  //function to update a reminder
+
+    var uReminder = {
+      message: "update testing",
+      id: "4"
+    };
+
+
+    function updateReminder(reminder) {
+    $.ajax({
+      method: "PUT",
+      url: "/api/reminder",
+      data: reminder
+    })
+    .done(function() {
+      window.location.href = "/reminder";
+    });
+  }
+
+
+
+
+
+
+
   });
 
 

@@ -1,5 +1,5 @@
 var modal = document.getElementById("helpModal");
-var btn = document.getElementById("helpBtn");
+var btn = document.getElementById("help");
 var span = document.getElementsByClassName("close")[0];
 
 $(document).ready(function() {

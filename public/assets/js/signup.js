@@ -1,8 +1,8 @@
 $(document).ready(function() {
   // Getting references to our form and input
   var signUpForm = $("form.signup");
-  var nameInput = $("input#name-input");
-  var passwordInput = $("input#password-input");
+  var nameInput = $(".signup #name-input");
+  var passwordInput = $(".signup #password-input");
 
   var modal = document.getElementById("signupModal");
   var btn = document.getElementById("altSignUpBtn");
@@ -25,9 +25,10 @@ $(document).ready(function() {
     }
   }
 
-  // When the signup button is clicked, we validate the name and password are not blank
+     // When the signup button is clicked, we validate the name and password are not blank
   signUpForm.on("submit", function(event) {
     console.log("sign up");
+    console.log($("#name-input").val());
     event.preventDefault();
     var userData = {
       name: nameInput.val().trim(),
@@ -43,6 +44,7 @@ $(document).ready(function() {
     nameInput.val("");
     passwordInput.val("");
   });
+
 
   // Does a post to the signup route. If succesful, we are redirected to the members page
   // Otherwise we log any errors

@@ -15,7 +15,7 @@ module.exports = function(app) {
   });
 
   app.get("/login", function(req, res) {
-    // If the user already has an account send them to the members page
+    // If the user already has an account send them to dashboard
     if (req.user) {
       res.redirect("/dashboard");
     }
@@ -26,18 +26,21 @@ module.exports = function(app) {
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
   //"/dashboard", isAuthenticated, (removed for now to navigate dashboard)
   //this will only work on node server when testing
-  app.get("/dashboard", function(req, res) {
+  app.get("/dashboard", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname + "/../public/dashboard.html"));
   });
 
+  //create a new reminder
   app.get("/dashboard/create", function(req, res) {
     res.sendFile(path.join(__dirname + "/../public/create.html"));
   });
 
+  //manage reminders
   app.get("/dashboard/manage", function(req, res) {
     res.sendFile(path.join(__dirname + "/../public/manage.html"));
   });
 
+  //resources page
   app.get("/dashboard/resources", function(req, res) {
     res.sendFile(path.join(__dirname + "/../public/resources.html"));
   });  

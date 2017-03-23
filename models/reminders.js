@@ -1,13 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var Reminder = sequelize.define("Reminder", {
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-    },
-    body: {
+    message: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {

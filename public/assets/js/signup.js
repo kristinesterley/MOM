@@ -4,6 +4,27 @@ $(document).ready(function() {
   var nameInput = $("input#name-input");
   var passwordInput = $("input#password-input");
 
+  var modal = document.getElementById("signupModal");
+  var btn = document.getElementById("altSignUpBtn");
+  var span = document.getElementsByClassName("close")[0];
+
+  //When alt sign up button is clicked(if user doesn't have login yet)
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  //When user clicks on <span> x, close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  //When user clicks outside of modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+
   // When the signup button is clicked, we validate the name and password are not blank
   signUpForm.on("submit", function(event) {
     event.preventDefault();

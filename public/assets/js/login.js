@@ -22,13 +22,13 @@ $(document).ready(function() {
     passwordInput.val("");
   });
 
-  // loginUser does a post to our "api/login" route and if successful, redirects us the the members page
+  // loginUser does a post to our "api/login" route and if successful, redirects us the the dashboard 
   function loginUser(name, password) {
     $.post("/api/login", {
       name: name,
       password: password
-    }).then(function(data) {
-      window.location.replace(data);
+    }).then(function() {
+      window.location.href = '/dashboard';
       // If there's an error, log the error
     }).catch(function(err) {
       console.log(err);

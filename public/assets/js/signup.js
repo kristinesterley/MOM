@@ -27,17 +27,19 @@ $(document).ready(function() {
 
   // When the signup button is clicked, we validate the name and password are not blank
   signUpForm.on("submit", function(event) {
+    console.log("sign up");
     event.preventDefault();
     var userData = {
       name: nameInput.val().trim(),
       password: passwordInput.val().trim()
     };
-
+    console.log(userData);
     if (!userData.name || !userData.password) {
       return;
     }
     // If we have an email and password, run the signUpUser function
     signUpUser(userData.name, userData.password);
+    console.log("signed up");
     nameInput.val("");
     passwordInput.val("");
   });
@@ -48,8 +50,8 @@ $(document).ready(function() {
     $.post("/api/signup", {
       name: name,
       password: password
-    }).then(function(data) {
-      window.location.replace(data);
+    }).then(function() {
+      window.location.href = '/dashboard';
     }).catch(function(err) {
       console.log(err);
     });

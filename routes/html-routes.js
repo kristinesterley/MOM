@@ -7,25 +7,38 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 module.exports = function(app) {
 
   app.get("/", function(req, res) {
-    // If the user already has an account send them to the members page
+    // If the user already has an account send them to the dashboard page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/dashboard");
     }
-    res.sendFile(path.join(__dirname + "/../public/signup.html"));
+    res.sendFile(path.join(__dirname + "/../public/index.html"));
   });
 
   app.get("/login", function(req, res) {
     // If the user already has an account send them to the members page
     if (req.user) {
-      res.redirect("/members");
+      res.redirect("/dashboard");
     }
-    res.sendFile(path.join(__dirname + "/../public/login.html"));
+    res.sendFile(path.join(__dirname + "/../public/index.html"));
   });
 
   // Here we've add our isAuthenticated middleware to this route.
   // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  app.get("/members", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname + "/../public/members.html"));
+  //"/dashboard", isAuthenticated, (removed for now to navigate dashboard)
+  //this will only work on node server when testing
+  app.get("/dashboard", function(req, res) {
+    res.sendFile(path.join(__dirname + "/../public/dashboard.html"));
   });
 
+  app.get("/dashboard/create", function(req, res) {
+    res.sendFile(path.join(__dirname + "/../public/create.html"));
+  });
+
+  app.get("/dashboard/manage", function(req, res) {
+    res.sendFile(path.join(__dirname + "/../public/manage.html"));
+  });
+
+  app.get("/dashboard/resources", function(req, res) {
+    res.sendFile(path.join(__dirname + "/../public/resources.html"));
+  });  
 };

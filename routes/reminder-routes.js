@@ -25,20 +25,20 @@ module.exports = function(app) {
     });
   });
 
-  // // Get rotue for retrieving a single post
-  // app.get("/api/posts/:id", function(req, res) {
-  //   // Here we add an "include" property to our options in our findOne query
-  //   // We set the value to an array of the models we want to include in a left outer join
-  //   // In this case, just db.Author
-  //   db.Post.findOne({
-  //     where: {
-  //       id: req.params.id
-  //     },
-  //     include: [db.Author]
-  //   }).then(function(dbPost) {
-  //     res.json(dbPost);
-  //   });
-  // });
+  // Get rotue for retrieving a single post
+  app.get("/api/reminder/:id", function(req, res) {
+    // Here we add an "include" property to our options in our findOne query
+    // We set the value to an array of the models we want to include in a left outer join
+    // In this case, just db.Author
+    db.Reminder.findOne({
+      where: {
+        id: req.params.id
+      },
+      include: [db.User]
+    }).then(function(dbReminders) {
+      res.json(dbReminders);
+    });
+  });
 
   // POST route for saving a new post
   app.post("/api/reminder", function(req, res) {
@@ -48,27 +48,27 @@ module.exports = function(app) {
     });
   });
 
-  // // DELETE route for deleting posts
-  // app.delete("/api/posts/:id", function(req, res) {
-  //   db.Post.destroy({
-  //     where: {
-  //       id: req.params.id
-  //     }
-  //   }).then(function(dbPost) {
-  //     res.json(dbPost);
-  //   });
-  // });
+  // DELETE route for deleting posts
+  app.delete("/api/reminder/:id", function(req, res) {
+    db.Reminder.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbReminders) {
+      res.json(dbReminders);
+    });
+  });
 
-  // // PUT route for updating posts
-  // app.put("/api/posts", function(req, res) {
-  //   db.Post.update(
-  //     req.body,
-  //     {
-  //       where: {
-  //         id: req.body.id
-  //       }
-  //     }).then(function(dbPost) {
-  //       res.json(dbPost);
-  //     });
-  // });
+  // PUT route for updating posts
+  app.put("/api/reminder", function(req, res) {
+    db.Reminder.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbReminders) {
+        res.json(dbReminders);
+      });
+  });
 };

@@ -35,7 +35,7 @@ module.exports = function(app) {
 
   app.get("/reminder", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname + "/../public/reminder.html"));
-
+  });
   //"/dashboard", isAuthenticated, (removed for now to navigate dashboard)
   //this will only work on node server when testing
   app.get("/dashboard", isAuthenticated, function(req, res) {

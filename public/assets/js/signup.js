@@ -1,8 +1,9 @@
 $(document).ready(function() {
   // Getting references to our form and input
   var signUpForm = $("form.signup");
-  var nameInput = $(".signup #name-input");
-  var passwordInput = $(".signup #password-input");
+  var nameInput = $("#name-signup-input");
+  var passwordInput = $("#password-signup-input");
+
 
   var modal = document.getElementById("signupModal");
   var btn = document.getElementById("altSignUpBtn");
@@ -28,7 +29,6 @@ $(document).ready(function() {
      // When the signup button is clicked, we validate the name and password are not blank
   signUpForm.on("submit", function(event) {
     console.log("sign up");
-    console.log($("#name-input").val());
     event.preventDefault();
     var userData = {
       name: nameInput.val().trim(),
@@ -40,7 +40,7 @@ $(document).ready(function() {
     }
     // If we have an email and password, run the signUpUser function
     signUpUser(userData.name, userData.password);
-    console.log("signed up");
+
     nameInput.val("");
     passwordInput.val("");
   });

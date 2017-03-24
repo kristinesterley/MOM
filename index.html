@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="public/assets/css/styles.css">
+</head>
+<body>
+
+	<h1>MOM</h1>
+		<h2>Memory Organizer Module</h2>
+
+	<form id="setup">
+		<!-- phone number -->
+		<label for="tel">Tel:</label>
+		<input type='tel' class='form-control' name='phone' pattern='[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}' title='Phone Number (Format: (999)999-9999)' placeholder="(888)888-8888"> 
+
+		<br>
+		<!-- reminder -->
+		<p class='formfield'>
+		<label for="reminder">Rem:</label>
+		<textarea rows='1' cols='50' class='form-control' name='reminder' placeholder='Feed the turtles..'></textarea>
+		</p>
+
+		<br>
+		<!-- date -->
+		<label for="day">Date:</label>
+		<!-- ****I do not know if this can be used as is as well as alternatively with javascript (to generate date picker outside of forms type when browser reverts to text) -->
+		<input type='date' class='form-control'>
+
+		<br>
+		<!-- time -->
+		<label for='when'>Time:</label>
+		<input type='time' class='form-control' name='when'>
+
+		<br>
+		<br>
+		<button id="remind" type='submit'>Remind me</button>
+
+	</form>
+	
+</body>
+</html>

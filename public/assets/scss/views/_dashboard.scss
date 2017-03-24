@@ -1,0 +1,43 @@
+
+/*dashboard*/
+#dashboardbody {
+background: #fff; /*temp bg*/
+}
+
+#create {
+	position: fixed;
+	top: 160px;
+	left: 445px;
+}
+
+#manage {
+	position: fixed;
+	top: 160px;
+	left: 870px;
+}
+
+#resrc {
+	position: fixed;
+	top: 500px;
+	left: 615px;
+}
+
+#help {
+	position: fixed;
+	top: 500px;
+	left: 815px;
+}
+
+.btnD {
+	
+	background-color: #bab; 
+    border: none;
+    color: white;
+    padding: 20px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px;
+}
+

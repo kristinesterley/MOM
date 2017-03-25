@@ -36,7 +36,7 @@ $(document).ready(function() {
       // to respond to the verification text before they can schedule any reminders.
       //*******************************************************************************
       // window.location.replace(data);
-      window.location.href = '/reminder';
+      window.location.href = '/dashboard';
       // If there's an error, log the error
     }).catch(function(err) {
       console.log(err);

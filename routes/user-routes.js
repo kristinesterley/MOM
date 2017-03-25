@@ -12,9 +12,9 @@ module.exports = function(app) {
     // They won't get this or even be able to access this page if they aren't authed
 
 
-    res.json("/reminder");
+    // res.json("/reminder");
 
-    // res.json("/dashboard");
+    res.json("/dashboard");
 
   });
 

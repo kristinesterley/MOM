@@ -2,7 +2,9 @@
 <html lang="en">
 
 <head>
+
   <title>MOM Dashboard</title>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Added Moment JS -->
@@ -21,26 +23,94 @@
     </div>
   </div>
 </nav>
-  <div class="container">
+<!--   <div class="container">
     <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <h2>Welcome <span class="user-name"></span></h2>
       </div>
     </div>
-  </div>
+  </div> -->
 
-<button id="create" class='btnD'>Create Reminders</button>
-<button id="manage" class='btnD'>Manage Reminders</button>
-<button id="resrc" class='btnD'>R</button>
-<button id="help" class='btnD'>?</button>
+<!-- create/update reminders -->
+<div id="create" class='dashDivs'>
+  <form id="setup">
+    <!-- phone number -->
+    <label for="tel">Tel:</label>
+    <input type='tel' class='form-control' name='phone' pattern='[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}' title='Phone Number (Format: (999)999-9999)' placeholder="(888)888-8888"> 
+
+    <br>
+    <!-- reminder -->
+    <p class='formfield'>
+    <label for="reminder">Rem:</label>
+    <textarea rows='1' cols='50' class='form-control' name='reminder' placeholder='Feed the turtles..'></textarea>
+    </p>
+
+    <br>
+    <!-- date -->
+    <label for="day">Date:</label>
+    <!-- ****I do not know if this can be used as is as well as alternatively with javascript (to generate date picker outside of forms type when browser reverts to text) -->
+    <input type='date' class='form-control'>
+
+    <br>
+    <!-- time -->
+    <label for='when'>Time:</label>
+    <input type='time' class='form-control' name='when'>
+
+    <br>
+    <br>
+    <button id="remind" type='submit'>Remind me</button>
+</div>
+
+<!-- manage current reminders -->
+<div id="manage" class='dashDivs'>
+
+  <ul>
+    <li>
+      <div class="reminderContainer">
+      <div class="clearfix">
+        <p class="reminderHead">Feed the chickens.</p>
+        <p class="reminderInfo" id="date">3/25/2017</p>
+        <p class="reminderInfo" id="time">3:55PM</p>
+        <p class="reminderInfo" id="freq">Daily</p>
+        <button id="mngBtn">...</button>
+      </div><!-- clearfix -->
+      </div><!-- reminder container -->
+    </li>
+    <br> <!-- INCLUDE THIS BREAK! -->
+  </ul>
+
+</div>
+
+<div id="templates" class='dashDivs'>
+  <ul>
+    <li>
+      <div class="templateContainer"><!-- ON CLICK OF THIS DIV -->
+      <div class="clearfix">
+        <p class="templateHead">Feed the chickens.</p>
+        <p class="templateInfo" id="date">3/25/2017</p>
+        <p class="templateInfo" id="time">3:55PM</p>
+        <p class="templateInfo" id="freq">Daily</p>
+      </div><!-- clearfix -->
+      </div><!-- template container -->
+    </li>
+    <br> <!-- INCLUDE THIS BREAK! -->
+  </ul>
+</div>
+
+<!-- resources -->
+<div id="resrc" class='dashDivs'>
+  <a href="http://google.com">Resources shtuff</a>
+</div>
+
+
 
 <!-- help modal -->
-<div id="helpModal" class="modal">
+<!-- <div id="helpModal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
      <p>Help info here!</p>
   </div>
-</div>
+</div> -->
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="assets/js/dashboard.js"></script>

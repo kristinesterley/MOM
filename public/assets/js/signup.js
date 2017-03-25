@@ -2,6 +2,7 @@ $(document).ready(function() {
   // Getting references to our form and input
   var signUpForm = $("form.signup");
 
+
   // var nameInput = $("input#name-input");
   // var passwordInput = $("input#password-input");
   // var phoneInput = $("input#phone-input");
@@ -9,6 +10,7 @@ $(document).ready(function() {
   var nameInput = $("#name-signup-input");
   var passwordInput = $("#password-signup-input");
   var phoneInput = $("#phone-signup-input");
+
 
 
   var modal = document.getElementById("signupModal");
@@ -47,6 +49,7 @@ $(document).ready(function() {
       return;
     }
     // If we have an email and password, run the signUpUser function
+
     signUpUser(userData.name, userData.password, userData.phone);
 
     nameInput.val("");

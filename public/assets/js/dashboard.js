@@ -26,19 +26,4 @@ $(document).ready(function() {
     }
   }
 
-$("#create").on("click", function() {
-	//relocate user to create a new reminder
-	window.location.href = '/dashboard/create';
-});
-
-$("#manage").on("click", function() {
-	//relocate user to manage reminders
-	window.location.href = '/dashboard/manage';
-});
-
-$("#resrc").on("click", function() {
-	//relocate user to resources
-	window.location.href = '/dashboard/resources';
-});
-
 });

@@ -31,9 +31,10 @@ background: #fff; /*temp bg*/
 }
 
 .dashDivs {
-	border: solid black 2px;
+	background-color: rgba(238,219,237, 0.3);
 	height: 250px;
 	width: 450px;
+	border-radius: 2px;
 
 }
 
@@ -42,16 +43,47 @@ background: #fff; /*temp bg*/
 	margin: 0 auto;
 }
 
+textarea {
+	width: 300px;
+	height: 30px;
+}
+
+.message::-webkit-input-placeholder {
+	color: #777;
+	font-size: 14px;
+	font-family: arial;
+}
+
 #remind {
 
-	background-color: #222; 
     border: none;
-    color: white;
     padding: 10px 10px;
     text-align: center;
     text-decoration: none;
     font-size: 14px;
+    margin-top: 0px;
 
+
+}
+
+#remind {
+  color: #fff;
+  border-radius: 2px;
+  background: url("../images/clock.svg") no-repeat;
+  background-color: #9b8182;
+}
+
+#remind:hover {
+  color: #e6d7dd;
+}
+
+#remind:focus {
+	outline: none;
+}
+
+
+#remind:active {
+  color: #d8d7dd;
 }
 
 .remLabel {
@@ -63,7 +95,19 @@ background: #fff; /*temp bg*/
 .date {
 	float: left;
 	margin-left: 52px;
+	// background-color: transparent;
+	// border: 2px solid #9b8182
 
+}
+
+input[type=date] {
+	border: 1px solid #9b8182;
+	background-color: transparent;
+}
+
+input[type=time] {
+	border: 1px solid #9b8182;
+	background-color: transparent;
 }
 
 .time {
@@ -77,6 +121,10 @@ background: #fff; /*temp bg*/
 .reminderInfo {
 	float: left;
 	margin: 5px;
+}
+
+.freq {
+	margin-bottom: 0px;
 }
 
 .formfield {

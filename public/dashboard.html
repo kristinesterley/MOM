@@ -33,7 +33,7 @@
     <!-- reminder -->
     <p class='formfield remInput reminder'>
     <label class="remLabel" for="reminder"></label>
-    <textarea rows='2' cols='32' class='form-control' name='reminder' placeholder='Feed the turtles..'></textarea>
+    <textarea rows='2' cols='32' class='form-control message' name='reminder' placeholder='YOUR REMINDER HERE'></textarea>
     </p>
 
     <!-- date -->
@@ -51,13 +51,14 @@
     </p>
 
     <!-- frequency -->
-    <p class='remInput'>
+    <p class='remInput freq'>
     <label class="remLabel" for='freq'>FREQUENCY</label>
       <select name="freq">
-    <option value="daily">Daily</option>
-    <option value="weekly">Weekly</option>
-    <option value="monthly">Monthly</option>
-  </select>
+        <option value="once">Once</option>
+        <option value="daily">Daily</option>
+        <option value="weekly">Weekly</option>
+        <option value="monthly">Monthly</option>
+      </select>
     </p>
     <br>
     <button id="remind" type='submit'>Remind me</button>

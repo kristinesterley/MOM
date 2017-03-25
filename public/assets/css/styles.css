@@ -144,33 +144,66 @@ p {
 
 #create {
   position: fixed;
-  top: 160px;
-  left: 445px; }
+  top: 80px;
+  left: 200px;
+  overflow-y: auto; }
 
 #manage {
   position: fixed;
-  top: 160px;
-  left: 870px; }
+  top: 80px;
+  left: 900px; }
 
 #resrc {
   position: fixed;
-  top: 500px;
-  left: 615px; }
+  top: 400px;
+  left: 200px; }
 
-#help {
+#templates {
   position: fixed;
-  top: 500px;
-  left: 815px; }
+  top: 400px;
+  left: 900px; }
 
-.btnD {
-  background-color: #bab;
-  border: none;
-  color: white;
-  padding: 20px 20px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 2px; }
+.dashDivs {
+  border: solid black 2px;
+  height: 250px;
+  width: 450px; }
+
+.reminderInfo {
+  float: left;
+  margin: 5px; }
+
+#mngBtn {
+  float: right; }
+
+li {
+  margin-bottom: 10px;
+  margin-top: 0px;
+  list-style-type: none; }
+
+.reminderHead {
+  margin-top: 0px;
+  margin-bottom: 0px; }
+
+.reminderContainer {
+  border: 1px solid black;
+  padding: 0px; }
+
+.templateHead {
+  margin-top: 0px;
+  margin-bottom: 0px; }
+
+.templateContainer {
+  border: 1px solid black;
+  padding: 0px; }
+
+.templateInfo {
+  float: left;
+  margin: 5px; }
+
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0px;
+  clear: both; }
 
 /*# sourceMappingURL=styles.css.map */

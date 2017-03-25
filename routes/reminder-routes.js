@@ -16,6 +16,7 @@ module.exports = function(app) {
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Author
     db.Reminder.findAll({
+      order: '`message` ASC',
       where: {
         UserId: req.params.user_id
       },
@@ -25,11 +26,11 @@ module.exports = function(app) {
     });
   });
 
-  // Get rotue for retrieving a single post
+  // Get rotue for retrieving a single reminder
   app.get("/api/reminder/:id", function(req, res) {
     // Here we add an "include" property to our options in our findOne query
     // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
+    // In this case, just db.User
     db.Reminder.findOne({
       where: {
         id: req.params.id
@@ -40,7 +41,7 @@ module.exports = function(app) {
     });
   });
 
-  // POST route for saving a new post
+  // POST route for saving a new reminder
   app.post("/api/reminder", function(req, res) {
 
     db.Reminder.create(req.body).then(function(dbReminder) {
@@ -48,7 +49,7 @@ module.exports = function(app) {
     });
   });
 
-  // DELETE route for deleting posts
+  // DELETE route for a reminder to delete
   app.delete("/api/reminder/:id", function(req, res) {
     db.Reminder.destroy({
       where: {
@@ -59,7 +60,7 @@ module.exports = function(app) {
     });
   });
 
-  // PUT route for updating posts
+  // PUT route for updating a reminder
   app.put("/api/reminder", function(req, res) {
     db.Reminder.update(
       req.body,

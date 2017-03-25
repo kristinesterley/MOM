@@ -5,8 +5,12 @@ var span = document.getElementsByClassName("close")[0];
 $(document).ready(function() {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
-  $.get("/api/user_data").then(function(data) {
-    $(".member-name").text(data.name);
+  $.get("/api/user-data").then(function(data) {
+    $(".user-name").text(data.name);
+    alert(data.name);
+    alert(data.password);
+    alert(data.phone);
+    alert(data.id);
   });
 
   //When alt sign up button is clicked(if user doesn't have login yet)

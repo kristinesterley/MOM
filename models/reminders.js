@@ -16,12 +16,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     begin_time: {
       type: DataTypes.TIME,
-      allowNull: false,
+      allowNull: false
     },
     frequency: {
-      type: DataTypes.TIME,
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 0      
+      defaultValue: "once"      
     },
   },
  

@@ -22,9 +22,9 @@ module.exports = function(app) {
     // If the user already has an account send them to dashboard
     if (req.user) {
 // <<<<<<< HEAD
-//       res.redirect("/reminder");
+      res.redirect("/reminder");
 // =======
-      res.redirect("/dashboard");
+      // res.redirect("/dashboard");
 
     }
     res.sendFile(path.join(__dirname + "/../public/index.html"));
@@ -43,18 +43,5 @@ module.exports = function(app) {
 
   });
 
-  //create a new reminder
-  app.get("/dashboard/create", function(req, res) {
-    res.sendFile(path.join(__dirname + "/../public/create.html"));
-  });
-
-  //manage reminders
-  app.get("/dashboard/manage", function(req, res) {
-    res.sendFile(path.join(__dirname + "/../public/manage.html"));
-  });
-
-  //resources page
-  app.get("/dashboard/resources", function(req, res) {
-    res.sendFile(path.join(__dirname + "/../public/resources.html"));
-  });  
-};
+ 
+ };

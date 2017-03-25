@@ -22,21 +22,6 @@ $(document).ready(function() {
     passwordInput.val("");
   });
 
-// may have an issue 
-  // loginUser does a post to our "api/login" route and if successful, redirects us the the reminders page
-
-  // function loginUser(name, password) {
-  //   $.post("/api/login", {
-  //     name: name,
-  //     password: password
-  //   }).then(function(data) {
-  //     window.location.replace(data);
-  //     // If there's an error, log the error
-  //   }).catch(function(err) {
-  //     console.log(err);
-  //   });
-  // }
-
 
   // loginUser does a post to our "api/login" route and if successful, redirects us the the dashboard 
 
@@ -45,8 +30,13 @@ $(document).ready(function() {
       name: name,
       password: password
     }).then(function(data) {
-      window.location.replace(data);
-      // window.location.href = '/dashboard';
+      //******************************************************************************
+      // here we need to also check to see if the user has responded okay to receiving texts.
+      // if not, we should not let then enter in to the application - we should send them a message
+      // to respond to the verification text before they can schedule any reminders.
+      //*******************************************************************************
+      // window.location.replace(data);
+      window.location.href = '/reminder';
       // If there's an error, log the error
     }).catch(function(err) {
       console.log(err);

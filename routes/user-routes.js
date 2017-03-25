@@ -12,9 +12,9 @@ module.exports = function(app) {
     // They won't get this or even be able to access this page if they aren't authed
 
 
-    // res.json("/reminder");
+    res.json("/reminder");
 
-    res.json("/dashboard");
+    // res.json("/dashboard");
 
   });
 
@@ -51,7 +51,8 @@ module.exports = function(app) {
       // Otherwise send back the user's name and id
       res.json({
         name: req.user.name,
-        id: req.user.id
+        id: req.user.id,
+        phone: req.user.phone
       });
     }
   });

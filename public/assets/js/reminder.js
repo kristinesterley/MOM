@@ -43,8 +43,8 @@ $(document).ready(function() {
 
   	var newReminder = {
   		message: messageInput.val().trim(),
-  		begin_date: beginDateInput.val().trim(),
-  		begin_time: beginTimeInput.val().trim(),
+  		begin_date: "2017-03-26",
+  		begin_time: "00:00:00",
   		frequency: frequencyInput.val().trim(),
   		UserId: reminderForm.attr("data-UserId")
   	}

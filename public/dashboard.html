@@ -29,32 +29,39 @@
 
 <!-- create/update reminders -->
 <div id="create" class='dashDivs'>
-  <form id="setup">
-    <!-- phone number -->
-    <label for="tel">Tel:</label>
-    <input type='tel' class='form-control' name='phone' pattern='[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}' title='Phone Number (Format: (999)999-9999)' placeholder="(888)888-8888"> 
-
-    <br>
+  <form id="setup" class='clearfix'>
     <!-- reminder -->
-    <p class='formfield'>
-    <label for="reminder">Rem:</label>
-    <textarea rows='1' cols='50' class='form-control' name='reminder' placeholder='Feed the turtles..'></textarea>
+    <p class='formfield remInput reminder'>
+    <label class="remLabel" for="reminder"></label>
+    <textarea rows='2' cols='32' class='form-control' name='reminder' placeholder='Feed the turtles..'></textarea>
     </p>
 
-    <br>
     <!-- date -->
-    <label for="day">Date:</label>
+    <p class='remInput date'>
+    <label class="remLabel" for="day">START DATE</label><br>
     <!-- ****I do not know if this can be used as is as well as alternatively with javascript (to generate date picker outside of forms type when browser reverts to text) -->
     <input type='date' class='form-control'>
+    </p>
 
-    <br>
+  
     <!-- time -->
-    <label for='when'>Time:</label>
+    <p class='remInput time'>
+    <label class="remLabel" for='when'>TIME</label><br>
     <input type='time' class='form-control' name='when'>
+    </p>
 
-    <br>
+    <!-- frequency -->
+    <p class='remInput'>
+    <label class="remLabel" for='freq'>FREQUENCY</label>
+      <select name="freq">
+    <option value="daily">Daily</option>
+    <option value="weekly">Weekly</option>
+    <option value="monthly">Monthly</option>
+  </select>
+    </p>
     <br>
     <button id="remind" type='submit'>Remind me</button>
+  </form>
 </div>
 
 <!-- manage current reminders -->

@@ -9,6 +9,7 @@ background: #fff; /*temp bg*/
 	top: 80px;
 	left: 200px;
 	overflow-y: auto;
+	text-align: center;
 }
 
 #manage {
@@ -36,9 +37,50 @@ background: #fff; /*temp bg*/
 
 }
 
+#setup {
+	width: 80%;
+	margin: 0 auto;
+}
+
+#remind {
+
+	background-color: #222; 
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+
+}
+
+.remLabel {
+	font-family: arial;
+	font-size: 10px;
+	color: #666;
+}
+
+.date {
+	float: left;
+	margin-left: 52px;
+
+}
+
+.time {
+	float: left;
+}
+
+.reminder {
+	margin-top: 8%;
+}
+
 .reminderInfo {
 	float: left;
 	margin: 5px;
+}
+
+.formfield {
+	margin-bottom: 0px;
 }
 
 

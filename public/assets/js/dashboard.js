@@ -13,45 +13,38 @@ $(document).ready(function() {
   var beginDateInput = $('[name=begin_date]');
   var beginTimeInput = $('[name=when]');
   // var frequencyInput = $("#frequency-input");
-  var reminderForm = $("#setup");
+  var reminderForm = $("#setup");\
+
+  //figure out which user is logged in and save off the user id for use later
 
   $.get("/api/user-data").then(function(data) {
-    // $(".user-name").text(data.name);
+    // $(".user-name").text(data.name); this line was for welcoming the user by name in on old vesion
     userName = data.name;
     userId = data.id;
     reminderForm.attr("data-userId", userId);
 
-
-    alert(userName);
-    alert(userId);
   });
 
 
-
-
-
-  // This file just does a GET request to figure out which user is logged in
-  // and updates the HTML on the page
   // $.get("/api/user-data", function(data) {
   //   var userID = data.id;
   //   reminderForm.attr("data-userId", userID);
-  //   var queryUrl = "/api/reminder-data/" + userID;
-  //   //now that you have the id, go get any existing reminders for this user.
-  //   $.get(queryUrl, function(dbReminders){
-  //     if (dbReminders){
-  //       var reminderList = "<ul>";
-  //     for(var p in dbReminders)
-  //     {
-  //         reminderList += "<li>" + dbReminders[p].message + "</li>";
-  //     }
-  //     reminderList += "</ul>";
-  //       $(".user-reminders").html(reminderList);
-  //     }
+    var queryUrl = "/api/reminder-data/" + userId;
+    //now that you have the id, go get any existing reminders for this user.
+    $.get(queryUrl, function(dbReminders){
+      if (dbReminders){
+        var reminderList = "<ul>";
+      for(var p in dbReminders)
+      {
+          reminderList += "<li>" + dbReminders[p].message + "</li>";
+      }
+      reminderList += "</ul>";
+        $(".user-reminders").html(reminderList);
+      }
 
-  //   });
+    });
 
-  //   });
-
+    // });
 
 
   $(reminderForm).on("submit", handleFormSubmit);

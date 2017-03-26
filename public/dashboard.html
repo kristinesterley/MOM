@@ -9,6 +9,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
         <!-- Added Moment JS -->
   <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+
   <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
 
 </head>
@@ -69,7 +70,8 @@
       </select>
     </p>
     <br>
-    <button id="remind" type='submit'>Remind me</button>
+    <button id="remind" data-mode="create" type='submit'>Remind me</button>
+    <button id="clear">Clear</button>
   </form>
 </div>
 
@@ -79,19 +81,9 @@
   <ul>
     <li>
       <div class="reminderContainer">
-      <div class="clearfix">
-        <p class="reminderHead">Feed the chickens.</p>
-        <p class="reminderInfo" id="date">3/25/2017</p>
-        <p class="reminderInfo" id="time">3:55PM</p>
-        <p class="reminderInfo" id="freq">Daily</p>
-        <div class="dropdown">
-          <button class="mngBtn">...</button>
-          <div class="dropdown-content">
-              <button id="update">update</button><br><!-- INCLUDE THIS BREAK -->
-              <button id="delete">delete</button>
-          </div>
-        </div>
-        </div>
+      <div class="clearfix" id="userReminders">
+
+       <!--  </div> -->
       </div><!-- clearfix -->
       </div><!-- reminder container -->
     </li>

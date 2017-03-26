@@ -2,67 +2,26 @@ var modal = document.getElementById("helpModal");
 var btn = document.getElementById("help");
 var span = document.getElementsByClassName("close")[0];
 
-$(document).ready(function() {
-  // This file just does a GET request to figure out which user is logged in
-  // and updates the HTML on the page
+
   var userName = "";
   var userId = "";
 
 
   var messageInput = $('[name=reminder]');
-  var beginDateInput = $('[name=begin_date]');
+  var beginDateInput = $('[name=begin-date]');
   var beginTimeInput = $('[name=when]');
-  // var frequencyInput = $("#frequency-input");
-  var reminderForm = $("#setup");\
+  var frequencyInput = $('[name=freq]');
+  var reminderForm = $("#setup");
 
-  //figure out which user is logged in and save off the user id for use later
-
-  $.get("/api/user-data").then(function(data) {
-    // $(".user-name").text(data.name); this line was for welcoming the user by name in on old vesion
-    userName = data.name;
-    userId = data.id;
-    reminderForm.attr("data-userId", userId);
-
-  });
-
-
-  // $.get("/api/user-data", function(data) {
-  //   var userID = data.id;
-  //   reminderForm.attr("data-userId", userID);
-    var queryUrl = "/api/reminder-data/" + userId;
-    //now that you have the id, go get any existing reminders for this user.
-    $.get(queryUrl, function(dbReminders){
-      if (dbReminders){
-        var reminderList = "<ul>";
-      for(var p in dbReminders)
-      {
-          reminderList += "<li>" + dbReminders[p].message + "</li>";
-      }
-      reminderList += "</ul>";
-        $(".user-reminders").html(reminderList);
-      }
-
-    });
-
-    // });
-
-
-  $(reminderForm).on("submit", handleFormSubmit);
-
-    function handleFormSubmit(event){
-      event.preventDefault();
-
-    var newReminder = {
-      message: messageInput.val().trim(),
-      begin_date: "2017-03-26",
-      begin_time: "00:00:00",
-      frequency: "once",
-      // frequency: frequencyInput.val().trim(),
-      UserId: reminderForm.attr("data-UserId")
-    }
-    submitReminder(newReminder);
-
+function clearSubmitForm(){
+  $("#remind").attr("data-mode","create").text("Remind Me");
+  messageInput.val("");
+  beginDateInput.val("");
+  beginTimeInput.val("");
+  frequencyInput.val("once");
 }
+
+//function to add a new reminder
 
 function submitReminder(reminder) {
   $.post("/api/reminder", reminder, function(){
@@ -70,10 +29,12 @@ function submitReminder(reminder) {
   });
 }
 
-
 //function to call to delete a reminder
+
+
   
-  function DeleteReminder(reminderId){
+function deleteReminder(reminderId){
+
     $.ajax({
       method: "DELETE",
       url: "/api/reminder/" + reminderId
@@ -84,65 +45,131 @@ function submitReminder(reminder) {
 
 }
 
-  //function to update a reminder
-
-    var uReminder = {
-      message: "update testing",
-      id: "4"
-    };
 
 
-    function updateReminder(reminder) {
+function updateReminder(reminder) {
     $.ajax({
       method: "PUT",
       url: "/api/reminder",
       data: reminder
     })
     .done(function() {
-      window.location.href = "/reminder";
+      window.location.href = "/dashboard";
     });
   }
 
 
 
+function handleFormSubmit(event){
+    event.preventDefault();
 
 
 
 
+    if ($("#remind").attr("data-mode")==="create") {
+
+      var newReminder = {
+        message: messageInput.val().trim(),
+        begin_date: beginDateInput.val().trim() + "T" + beginTimeInput.val().trim() + ":00",
+        begin_time: beginTimeInput.val().trim() + ":00",
+        frequency: frequencyInput.val().trim(),
+        UserId: reminderForm.attr("data-UserId")
+      } //end newReminder
+
+      submitReminder(newReminder);
+    } //end if
+
+    else if ($("#remind").attr("data-mode") === "update"){
+      var uReminder = {
+        message: messageInput.val().trim(),
+        begin_date: beginDateInput.val().trim() + "T" + beginTimeInput.val().trim() + ":00",
+        begin_time: beginTimeInput.val().trim() + ":00",
+        frequency: frequencyInput.val().trim(),
+        UserId: reminderForm.attr("data-UserId"),
+        id: $("#remind").attr("data-id")
+      
+
+    } //end uReminder
+      $("#remind").attr("data-mode", "create").text("Remind Me");
+      updateReminder(uReminder);
+    }//end else if
+
+}
+
+function editReminder(reminderId){
+  $.get("/api/reminder/" + reminderId).then(function(data){
+    messageInput.val(data.message);
+    beginDateInput.val(data.begin_date.substring(0,10));
+    beginTimeInput.val(data.begin_time.substring(0,5));
+    frequencyInput.val(data.frequency);
+    $("#remind").attr("data-id",data.id);
+  });
+
+}
 
 
 
+$(document).ready(function() {
+
+  //figure out which user is logged in and save off the user id for use later
+
+  $.get("/api/user-data").then(function(data) {
+    // $(".user-name").text(data.name); this line was for welcoming the user by name in on old vesion
+      userName = data.name;
+      userId = data.id;
+      reminderForm.attr("data-userId", userId);
+
+      //now get any reminders that this user has already created
+
+      var queryUrl = "/api/reminder-data/" + userId;
+
+        $.get(queryUrl, function(dbReminders){
+           if (dbReminders){
+
+            var reminderDisplay = "";
+            for (var rem in dbReminders){
+              //reformat date and time from the database
+              var dateTime = dbReminders[rem].begin_date 
+
+              //begin_date has been saved into the database by sequelize, which assumes and stores the time as UTC date and time. We are displaying in UTC
+              //so as not to confuse the user (moment converts the database time to local time, which for us subtracts 4 hours)
+
+              var dateReformat = moment.utc(dateTime).format('MM/DD/YYYY hh:mm a');
+              reminderDisplay = "<p class='reminderHead'>" + dbReminders[rem].message + "</p>";
+              reminderDisplay += "<p class='reminderInfo' id='date'>" + dateReformat + "</p>";
+              reminderDisplay += "<p class='reminderInfo' id='freq'>" + dbReminders[rem].frequency + "</p>";
+              reminderDisplay += "<div class='dropdown'>"
+              reminderDisplay += "<button class='mngBtn'>...</button>"
+              reminderDisplay += "<div class='dropdown-content'>"
+              reminderDisplay += "<button class='edit' data-id=" + dbReminders[rem].id + ">edit</button><br>" //<!-- INCLUDE THIS BREAK -->
+              reminderDisplay += "<button class='delete' data-id=" + dbReminders[rem].id + ">delete</button>"
+              reminderDisplay += "</div>"
+              reminderDisplay += "</div><br><br>"
+
+              $("#userReminders").append(reminderDisplay);
+
+            }
+         }   
+
+    });
+  });      
+
+  $("#clear").on("click", clearSubmitForm);
+
+  $("#remind").on("click", handleFormSubmit);
+
+  $(document).on("click", ".delete", function(e){
+        e.preventDefault();
+       deleteReminder($(this).attr("data-id"));
+      });
+
+  $(document).on("click", ".edit", function(e){
+        e.preventDefault();
+        $("#remind").attr("data-mode", "update").text("Update");
+        editReminder($(this).attr("data-id"));
+      });
+  
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // //When alt sign up button is clicked(if user doesn't have login yet)
-  // btn.onclick = function() {
-  //   modal.style.display = "block";
-  // }
-
-  // //When user clicks on <span> x, close the modal
-  // span.onclick = function() {
-  //   modal.style.display = "none";
-  // }
-
-  // //When user clicks outside of modal, close it
-  // window.onclick = function(event) {
-  //   if (event.target == modal) {
-  //     modal.style.display = "none";
-  //   }
-  // }
 
 });

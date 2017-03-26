@@ -43,8 +43,9 @@ module.exports = function(app) {
 
   // POST route for saving a new reminder
   app.post("/api/reminder", function(req, res) {
-
+    console.log("in app.post /api/reminder");
     db.Reminder.create(req.body).then(function(dbReminder) {
+      console.log("this is the return value " + dbReminder);
       res.json(dbReminder);
     });
   });

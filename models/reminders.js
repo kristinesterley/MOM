@@ -8,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     }, 
     begin_date: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.DATE,
       allowNull: false,
       validate: {
         isDate:true

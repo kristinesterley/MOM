@@ -3,19 +3,32 @@ $(document).ready(function() {
   var signUpForm = $("form.signup");
 
 
-  // var nameInput = $("input#name-input");
-  // var passwordInput = $("input#password-input");
-  // var phoneInput = $("input#phone-input");
-
   var nameInput = $("#name-signup-input");
   var passwordInput = $("#password-signup-input");
   var phoneInput = $("#phone-signup-input");
 
 
-
   var modal = document.getElementById("signupModal");
   var btn = document.getElementById("altSignUpBtn");
   var span = document.getElementsByClassName("close")[0];
+
+    // Does a post to the signup route. If succesful, we will send a text to the new user to verify that the phone number is correct
+    // the user will be notified that he/she must respond positively to the text before being allowed to log in
+  function signUpUser(name, password, phone) {
+    $.post("/api/signup", {
+      name: name,
+      password: password,
+      phone: phone
+    }).then(function(data) {
+
+      //this needs to be changed to a page/pop up with instructions about responding to the text
+      window.location.replace(data);
+      
+    }).catch(function(err) {
+      console.log(err);
+    });
+  }
+
 
   //When alt sign up button is clicked(if user doesn't have login yet)
   btn.onclick = function() {
@@ -58,23 +71,6 @@ $(document).ready(function() {
   });
 
 
-  // Does a post to the signup route. If succesful, we are redirected to the members page
-  // Otherwise we log any errors
-  function signUpUser(name, password, phone) {
-    $.post("/api/signup", {
-      name: name,
-      password: password,
-      phone: phone
-//     }).then(function(data) {
-//       window.location.replace(data);
-// =======
-//       password: password
-    }).then(function(data) {
-      window.location.replace(data);
-      // window.location.href = '/dashboard';
-    }).catch(function(err) {
-      console.log(err);
-    });
-  }
+
 
 });

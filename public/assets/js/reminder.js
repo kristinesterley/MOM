@@ -19,18 +19,18 @@ $(document).ready(function() {
   	reminderForm.attr("data-userId", userID);
   	var queryUrl = "/api/reminder-data/" + userID;
   	//now that you have the id, go get any existing reminders for this user.
-  	$.get(queryUrl, function(dbReminders){
-  		if (dbReminders){
-  			var reminderList = "<ul>";
-			for(var p in dbReminders)
-			{
-			    reminderList += "<li>" + dbReminders[p].message + "</li>";
-			}
-			reminderList += "</ul>";
-  			$(".user-reminders").html(reminderList);
-  		}
+  	// $.get(queryUrl, function(dbReminders){
+  	// 	if (dbReminders){
+  	// 		var reminderList = "<ul>";
+			// for(var p in dbReminders)
+			// {
+			//     reminderList += "<li>" + dbReminders[p].message + "</li>";
+			// }
+			// reminderList += "</ul>";
+  	// 		$(".user-reminders").html(reminderList);
+  	// 	}
 
-  	});
+  	// });
 
   	});
 
@@ -45,7 +45,8 @@ $(document).ready(function() {
   		message: messageInput.val().trim(),
   		begin_date: "2017-03-26",
   		begin_time: "00:00:00",
-  		frequency: frequencyInput.val().trim(),
+      frequency: "once",
+  		// frequency: frequencyInput.val().trim(),
   		UserId: reminderForm.attr("data-UserId")
   	}
   	submitReminder(newReminder);
@@ -54,7 +55,7 @@ $(document).ready(function() {
 
 function submitReminder(reminder) {
 	$.post("/api/reminder", reminder, function(){
-		window.location.href="/reminder";
+		window.location.href="/dashboard";
 	});
 }
 
@@ -67,7 +68,7 @@ function submitReminder(reminder) {
       url: "/api/reminder/" + reminderId
     })
     .done(function() {
-      window.location.href="/reminder";
+      window.location.href="/dashboard";
     });
 
 }
@@ -87,7 +88,7 @@ function submitReminder(reminder) {
       data: reminder
     })
     .done(function() {
-      window.location.href = "/reminder";
+      window.location.href = "/dashboard";
     });
   }
 

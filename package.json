@@ -35,8 +35,6 @@
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^3.1.1",
     "gulp-notify": "^3.0.0",
-    "gulp-sass": "^3.1.0",
-    "sequelize": "^3.30.2",
-    "tropo-webapi": "^1.2.0"
+    "gulp-sass": "^3.1.0"
   }
 }

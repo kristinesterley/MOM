@@ -22,6 +22,7 @@ $(document).ready(function() {
     }).then(function(data) {
 
       //this needs to be changed to a page/pop up with instructions about responding to the text
+      //this is where a text needs to be sent to the user's phone with a request to respond 'Y'
       window.location.replace(data);
       
     }).catch(function(err) {

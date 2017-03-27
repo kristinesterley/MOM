@@ -19,8 +19,8 @@ module.exports = function(app) {
       order: '`message` ASC',
       where: {
         UserId: req.params.user_id
-      },
-      include: [db.User]
+      }
+      // include: [db.User] //don't think I need this include
     }).then(function(dbReminders) {
       res.json(dbReminders);
     });
@@ -34,8 +34,8 @@ module.exports = function(app) {
     db.Reminder.findOne({
       where: {
         id: req.params.id
-      },
-      include: [db.User]
+      }
+      // include: [db.User]
     }).then(function(dbReminders) {
       res.json(dbReminders);
     });

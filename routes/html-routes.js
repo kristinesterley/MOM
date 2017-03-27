@@ -23,14 +23,7 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname + "/../public/index.html"));
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
 
-  app.get("/reminder", isAuthenticated, function(req, res) {
-    res.sendFile(path.join(__dirname + "/../public/reminder.html"));
-  });
-  //"/dashboard", isAuthenticated, (removed for now to navigate dashboard)
-  //this will only work on node server when testing
   app.get("/dashboard", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname + "/../public/dashboard.html"));
 

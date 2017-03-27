@@ -5,6 +5,7 @@ var span = document.getElementsByClassName("close")[0];
 
   var userName = "";
   var userId = "";
+  var userPhone = "";
 
 
   var messageInput = $('[name=reminder]');
@@ -25,6 +26,19 @@ function clearSubmitForm(){
 
 function submitReminder(reminder) {
   $.post("/api/reminder", reminder, function(){
+
+    //Ilona
+
+   //all data needed to schedule a text is here - maybe this is the best place to put it?
+
+    // alert(userName);
+    // alert(reminder.message);
+    // alert(userPhone);
+    // alert(reminder.begin_date);
+    // alert(reminder.begin_time);
+    // alert(reminder.frequency);
+
+
     window.location.href="/dashboard";
   });
 }
@@ -40,6 +54,9 @@ function deleteReminder(reminderId){
       url: "/api/reminder/" + reminderId
     })
     .done(function() {
+
+      //Ilona - you may need to put the delete scheduled text, but I don't know what data you need do that
+
       window.location.href="/dashboard";
     });
 
@@ -54,6 +71,8 @@ function updateReminder(reminder) {
       data: reminder
     })
     .done(function() {
+
+        //ditto the above comment for the delete. the data y ou need to add a new scheduled reminder should be accessible here.
       window.location.href = "/dashboard";
     });
   }
@@ -118,6 +137,7 @@ $(document).ready(function() {
       userName = data.name;
       userId = data.id;
       reminderForm.attr("data-userId", userId);
+      userPhone = data.phone;
 
       //now get any reminders that this user has already created
 

@@ -41,11 +41,13 @@ module.exports = function(app) {
     });
   });
 
+
   // POST route for saving a new reminder
   app.post("/api/reminder", function(req, res) {
-    console.log("in app.post /api/reminder");
     db.Reminder.create(req.body).then(function(dbReminder) {
-      console.log("this is the return value " + dbReminder);
+
+      // Ilona - I know that you want to put the schedule code here, but the user's phone number is not accessible here
+
       res.json(dbReminder);
     });
   });
@@ -57,6 +59,10 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(dbReminders) {
+
+      // Ilona - don't know how you will specify which text needs to be deleted from the schedule
+
+
       res.json(dbReminders);
     });
   });
@@ -70,6 +76,11 @@ module.exports = function(app) {
           id: req.body.id
         }
       }).then(function(dbReminders) {
+
+        // Ilona code to update previously scheduled texts could go here, but same problem with create - phone number not available here
+        // might need to delete the previously scheduled one and add a new one?
+        // if that's the case, then you may need to do this processing in the appropriate function in dashboard.js
+
         res.json(dbReminders);
       });
   });

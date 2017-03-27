@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var Tasks = sequelize.define("Task", {
+  var Task = sequelize.define("Task", {
 
     message: {
       type: DataTypes.STRING,
@@ -10,13 +10,11 @@ module.exports = function(sequelize, DataTypes) {
     }    
     }, {
         timestamps:false
-
-
   });
 
     
    
     // freezeTableName: true,
   
-  return Tasks;
+  return Task;
 };

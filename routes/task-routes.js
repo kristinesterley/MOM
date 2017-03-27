@@ -9,24 +9,21 @@ var db = require("../models");
 // =============================================================
 module.exports = function(app) {
 
-  // GET route for getting all of the posts
+  // GET route for getting all of the suggested tasks - bring them back in ascending alphabetical order
   app.get("/api/tasks", function(req, res) {
 
-    // Here we add an "include" property to our options in our findAll query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
-    db.Tasks.findAll({
+    db.Task.findAll({
       order: '`message` ASC'
     }).then(function(dbTasks) {
       res.json(dbTasks);
     });
   });
-  // Get rotue for retrieving a single post
+
+
+  // Get rotue for retrieving a single task - don't think we're going to use this one.....
   app.get("/api/task/:id", function(req, res) {
-    // Here we add an "include" property to our options in our findOne query
-    // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
-    db.Tasks.findOne({
+
+    db.Task.findOne({
       where: {
         id: req.params.id
       }

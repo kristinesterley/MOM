@@ -126,11 +126,24 @@ function editReminder(reminderId){
 
 }
 
+function displayTasks(){
+  $.get("/api/tasks", function(dbTasks){
+      if (dbTasks){
+        var taskDisplay = "";
+        for (var task in dbTasks){
 
+          taskDisplay += "<p class='templateHead task-item'>" + dbTasks[task].message + "</p><br>";
 
-$(document).ready(function() {
+        }
+        $("#tasks").append(taskDisplay);
+      }
 
-  //figure out which user is logged in and save off the user id for use later
+  });
+
+}
+
+function displayReminders(){
+    //figure out which user is logged in and save off the user id for use later
 
   $.get("/api/user-data").then(function(data) {
     // $(".user-name").text(data.name); this line was for welcoming the user by name in on old vesion
@@ -172,7 +185,15 @@ $(document).ready(function() {
          }   
 
     });
-  });      
+  }); 
+}
+
+//code execution begins here
+
+$(document).ready(function() {
+
+  displayReminders();
+  displayTasks();   
 
   $("#clear").on("click", clearSubmitForm);
 
@@ -189,7 +210,11 @@ $(document).ready(function() {
         editReminder($(this).attr("data-id"));
       });
   
-
+  $(document).on("dblclick", ".task-item", function(){
+        
+        $("#remind").attr("data-mode", "create").text("Remind Me");
+        messageInput.val($(this).text());
+      });
 
 
 });

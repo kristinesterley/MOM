@@ -92,7 +92,7 @@ function handleFormSubmit(event){
         begin_date: beginDateInput.val().trim() + "T" + beginTimeInput.val().trim() + ":00",
         begin_time: beginTimeInput.val().trim() + ":00",
         frequency: frequencyInput.val().trim(),
-        UserId: reminderForm.attr("data-UserId")
+        UserId: userId
       } //end newReminder
 
       submitReminder(newReminder);
@@ -104,7 +104,7 @@ function handleFormSubmit(event){
         begin_date: beginDateInput.val().trim() + "T" + beginTimeInput.val().trim() + ":00",
         begin_time: beginTimeInput.val().trim() + ":00",
         frequency: frequencyInput.val().trim(),
-        UserId: reminderForm.attr("data-UserId"),
+        UserId: userId,
         id: $("#remind").attr("data-id")
       
 
@@ -149,7 +149,6 @@ function displayReminders(){
     // $(".user-name").text(data.name); this line was for welcoming the user by name in on old vesion
       userName = data.name;
       userId = data.id;
-      reminderForm.attr("data-userId", userId);
       userPhone = data.phone;
 
       //now get any reminders that this user has already created
@@ -212,7 +211,7 @@ $(document).ready(function() {
   
   $(document).on("dblclick", ".task-item", function(){
         
-        $("#remind").attr("data-mode", "create").text("Remind Me");
+        clearSubmitForm();
         messageInput.val($(this).text());
       });
 

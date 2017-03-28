@@ -1,68 +1,141 @@
 
 /*dashboard*/
 #dashboardbody {
-background: #fff; /*temp bg*/
+background: url("../images/circuit.png");
+
+}
+
+.fixedHeader {
+	height: 80px;
+	top: 0px;
+	left: 0px;
+	z-index: 1;
+	background: #000;
+	position: fixed;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#logo {
+	position: absolute;
+	left: 5%
+
+}
+
+#logout {
+	position: absolute;
+	left: 92%;
+	top: 45%;
+	margin: 10px;
+	font-family: Space Mono;
+	text-decoration: none;
+	color: #e73630;
 }
 
 #create {
-	position: fixed;
-	top: 80px;
-	left: 200px;
+	position: absolute;
+	top: 20%;
+	left: 15%;
 	overflow-y: auto;
 	text-align: center;
 }
 
 #manage {
-	position: fixed;
-	top: 80px;
-	left: 900px;
+	position: absolute;
+	top: 20%;
+	left: 42%;
 }
 
 #resrc {
-	position: fixed;
-	top: 400px;
-	left: 200px;
+	position: absolute;
+	top: 65%;
+	left: 15%;
 }
 
 #templates {
-	position: fixed;
-	top: 400px;
-	left: 900px;
+	position: absolute;
+	top: 20%;
+	left: 72%;
+	margin-bottom: 20px;
 }
 
-.dashDivs {
-	background-color: rgba(238,219,237, 0.3);
-	height: 250px;
-	width: 450px;
-	border-radius: 2px;
-
+.dashHeader {
+	margin: 0 auto;
+	width: 100%;
+	background: rgba(255, 49, 30, 0.89);
+	font-size: 35px;
+	color: #000;
+	font-family: Orbitron;
 }
 
 #setup {
-	width: 80%;
+	width: 100%;
+	height: 100%;
 	margin: 0 auto;
+	background: rgba(255, 255, 230, 0.8);
 }
 
-textarea {
+.dashDivs {
+	background: #98ff98;
+	height: 275px;
 	width: 300px;
-	height: 30px;
+	border-radius: 2px;
+	box-shadow: 5px 5px 6px #111;
+
+}
+
+.dashDivT {
+	background: #98ff98;
+	height: 600px;
+	width: 300px;
+	border-radius: 2px;
+	box-shadow: 5px 5px 6px #111;
+
+}
+
+.dashDivR {
+	background: #98ff98;
+	height: 275px;
+	width: 630px;
+	border-radius: 2px;
+	box-shadow: 5px 5px 6px #111;
+
+}
+
+
+textarea {
+	width: 85%;
+	outline: none;
+	box-shadow: none;
+	overflow: auto;
+	resize: none;
+	border: none;
+	box-shadow: 1px 1px 2px #009933;
+	height: 40px;
 }
 
 .message::-webkit-input-placeholder {
-	color: #777;
-	font-size: 14px;
-	font-family: arial;
+	color: #000;
+	font-size: 18px;
+	font-family: Space Mono;
 }
 
-#remind {
+input[type="date"]:before {
+	//edit placeholder here..
+	// color: gray;
+	// content: '' !important;
+	// content: attr(placeholder) !important;
+}
 
+
+#remind {
+	font-family: Space Mono;
     border: none;
     padding: 10px 10px;
     text-align: center;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 18px;
     margin-top: 0px;
-
 
 }
 
@@ -70,11 +143,15 @@ textarea {
   color: #fff;
   border-radius: 2px;
   background: url("../images/clock.svg") no-repeat;
-  background-color: #9b8182;
+  background-color: rgba(51, 110, 45, 0.9);
+  box-shadow: 2px 2px 2px #003333;
+
 }
 
 #remind:hover {
-  color: #e6d7dd;
+  background: url("../images/clockh.svg") no-repeat;
+  background-color:  rgba(51, 110, 45, 0.6);
+
 }
 
 #remind:focus {
@@ -94,24 +171,35 @@ textarea {
 
 .date {
 	float: left;
-	margin-left: 52px;
+	margin-top: 5px;
+	margin-left: 8%;
 	// background-color: transparent;
 	// border: 2px solid #9b8182
 
 }
 
 input[type=date] {
-	border: 1px solid #9b8182;
-	background-color: transparent;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	box-shadow: 1px 1px 2px #009933;
+	height: 30px;
+	padding: 2px;
+
 }
 
 input[type=time] {
-	border: 1px solid #9b8182;
-	background-color: transparent;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	box-shadow: 1px 1px 2px #009933;
+	height: 30px;
+	padding: 2px;
 }
 
 .time {
 	float: left;
+	margin-top: 5px;
 }
 
 .reminder {
@@ -185,8 +273,10 @@ li {
 }
 
 .reminderContainer {
-	border: 1px solid black;
 	padding: 0px;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 230, 0.8);
 }
 
 
@@ -196,13 +286,20 @@ li {
 }
 
 .templateContainer {
-	border: 1px solid black;
-	padding: 0px;
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 230, 0.8);
 }
 
 .templateInfo {
 	float: left;
 	margin: 5px;
+}
+
+.resrcContainer {
+	width: 100%;
+	height: 100%;
+	background: rgba(255, 255, 230, 0.8);
 }
 
 .clearfix:after { 

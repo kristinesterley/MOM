@@ -14,6 +14,7 @@
   <nav class="fixedHeader">
     <div class="navbar-header">
       <img id="logo" src="assets/images/momlg.png">
+      <h3 id='welcome'>Welcome home, <span class="member-name"></span>.</h3>
       <a class="navbar-brand" id="logout" href="/logout">
         logout
       </a>
@@ -70,43 +71,50 @@
 <div id="manage" class='dashDivs'>
 <div class="reminderContainer">
   <h2 class="dashHeader">manage</h2>
+    <div class="clearfix">
+  <div class="reminderx">
+
   <ul>
     <li>
-      <div class="clearfix">
         <p class="reminderHead">Feed the chickens.</p>
         <p class="reminderInfo" id="date">3/25/2017</p>
         <p class="reminderInfo" id="time">3:55PM</p>
         <p class="reminderInfo" id="freq">Daily</p>
         <div class="dropdown">
-          <button class="mngBtn">...</button>
+          <button class="mngBtn"></button><div id='mngRect'></div>
           <div class="dropdown-content">
               <button id="update">update</button><br><!-- INCLUDE THIS BREAK -->
               <button id="delete">delete</button>
           </div>
-        </div>
-        </div>
-      </div><!-- clearfix -->
-      
+        </div>  
     </li>
     <br> <!-- INCLUDE THIS BREAK! -->
   </ul>
+
+  </div><!-- reminder x -->
+  </div><!-- clearfix -->
 </div><!-- reminder container -->
 </div>
 
 <div id="templates" class='dashDivT'>
-  <div class="templateContainer"><!-- ON CLICK OF THIS DIV -->
+<div class="templateContainer">
   <h2 class="dashHeader">templates</h2>
+
   <ul>
+    <div class="templatex"><!-- ON CLICK OF THIS DIV -->
     <li>
       <div class="clearfix">
-        <p class="templateHead">Feed the chickens.</p>
-        <p class="templateInfo" id="date">3/25/2017</p>
+        <p class="templateHead">An example template.</p>
+<!--         <p class="templateInfo" id="date">3/25/2017</p>
         <p class="templateInfo" id="time">3:55PM</p>
-        <p class="templateInfo" id="freq">Daily</p>
+        <p class="templateInfo" id="freq">Daily</p> -->
       </div><!-- clearfix -->
     </li>
+    </div><!-- template x -->
     <br> <!-- INCLUDE THIS BREAK! -->
+
   </ul>
+
     </div><!-- template container -->
 </div>
 

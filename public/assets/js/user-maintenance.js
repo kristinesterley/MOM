@@ -1,3 +1,4 @@
+
 var userId;
 var url = window.location.search;
 
@@ -33,6 +34,7 @@ function updatePassword(){
 		password: $("#password-input").val().trim(),
 		id: userId
 	}
+	
 
 	$.ajax({
       	method: "PUT",
@@ -40,25 +42,27 @@ function updatePassword(){
       	data: user
 
 	})
-	.done(alert("success"));
+	.done(alert("password change?"));
 }
 
 
+function updatePhone(){
+
+	var user = {
+		phone: $("#phone-input").val().trim(),
+		id: userId
+	}
+
+	$.ajax({
+      	method: "PUT",
+      	url: "/api/user",
+      	data: user
+
+	})
+	.done(alert("need to update existing scheduled texts"));
+}
 
 
-
-// function updateReminder(reminder) {
-//     $.ajax({
-//       method: "PUT",
-//       url: "/api/reminder",
-//       data: reminder
-//     })
-//     .done(function() {
-
-//         //ditto the above comment for the delete. the data y ou need to add a new scheduled reminder should be accessible here.
-//       window.location.href = "/dashboard";
-//     });
-//   }
 
   
 $(document).ready(function() {
@@ -70,7 +74,7 @@ $(document).ready(function() {
 		e.preventDefault();
 		window.location.href = '/dashboard';
 	});
-
+	$("#change-phone").on("click", updatePhone);
 
 
   // if (url.indexOf("?user_id=") !== -1) {

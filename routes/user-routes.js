@@ -69,9 +69,7 @@ module.exports = function(app) {
 
     // PUT route for updating a user
   app.put("/api/user", function(req, res) {
-    console.log("************************************");
-    console.log("req.body.id");
-    console.log("req.body.password");
+
     db.User.update(
       req.body,
       {

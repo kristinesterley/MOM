@@ -50,22 +50,23 @@ module.exports = function(sequelize, DataTypes) {
     // Hooks are automatic methods that run during various phases of the User Model lifecycle
     // In this case, before a User is created, we will automatically hash their password
         hooks: {
-          beforeCreate: function(user, options, cb) {
-            user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
-            cb(null, options);
+          beforeBulkUpdate: function(user) {
+            console.log("***************************");
+            console.log("password before " + user.attributes.password);
+            console.log(user);
+
+            user.attributes.password = bcrypt.hashSync(user.attributes.password, bcrypt.genSaltSync(10), null);
+            console.log("password after " + user.password);
+            // cb(null, options);
           },
-          beforeUpdate: function(user, options, cb) {
+          beforeCreate: function(user, options, cb) {
+            console.log("***************************");
+            console.log("create password before " + user.password);
             user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
             cb(null, options);
           }
         }
-
-    // Here we'll pass a second "classMethods" object into the define method
-    // This is for any additional configuration we want to give our models
-          // We're saying that we want our User to have Reminders
-
-    }
-
-  );
+      }
+    );
   return User;
 };

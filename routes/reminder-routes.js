@@ -48,6 +48,7 @@ module.exports = function(app) {
 
       // Ilona - I know that you want to put the schedule code here, but the user's phone number is not accessible here
 
+      console.log(dbReminder.id);
       res.json(dbReminder);
     });
   });

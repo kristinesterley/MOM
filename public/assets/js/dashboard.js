@@ -25,7 +25,11 @@ function clearSubmitForm(){
 //function to add a new reminder
 
 function submitReminder(reminder) {
-  $.post("/api/reminder", reminder, function(){
+  $.post("/api/reminder", reminder, function(data){
+
+    var reminderId = data.id;
+  
+
 
     //Ilona
 

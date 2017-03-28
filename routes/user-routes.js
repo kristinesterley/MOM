@@ -11,9 +11,6 @@ module.exports = function(app) {
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
 
-
-    // res.json("/reminder");
-
     res.json("/dashboard");
 
   });
@@ -55,6 +52,36 @@ module.exports = function(app) {
         phone: req.user.phone
       });
     }
+  });
+
+//route for deleting a user account
+  app.delete("/api/user/:id", function(req, res) {
+
+    db.User.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
+
+    // PUT route for updating a user
+  app.put("/api/user", function(req, res) {
+    console.log("************************************");
+    console.log("req.body.id");
+    console.log("req.body.password");
+    db.User.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbUser) {
+
+        res.json(dbUser);
+      });
   });
 
 };

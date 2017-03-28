@@ -198,6 +198,13 @@ $(document).ready(function() {
 
   $("#remind").on("click", handleFormSubmit);
 
+  $("#user-maintenance").on("click", function(){
+     // window.location.href = "/user-maintenance?user_id=" + userId; don't need to send the user id to user-maintenance
+     // passport is holding on the the user info for us
+     window.location.href = "/user-maintenance";
+  });
+
+
   $(document).on("click", ".delete", function(e){
         e.preventDefault();
        deleteReminder($(this).attr("data-id"));

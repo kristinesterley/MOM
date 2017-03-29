@@ -44,30 +44,29 @@ background: url("../images/circuit.png");
 
 #create {
 	position: absolute;
-	top: 20%;
-	left: 15%;
+	top: 15%;
+	left: 10%;
 	overflow-y: auto;
 	text-align: center;
 }
 
 #manage {
 	position: absolute;
-	top: 20%;
-	left: 42%;
+	top: 15%;
+	left: 38%;
 	text-align: center;
-	overflow: auto;
 }
 
 #resrc {
 	position: absolute;
-	top: 65%;
-	left: 15%;
+	top: 15%;
+	left: 75%;
 }
 
 #templates {
 	position: absolute;
-	top: 20%;
-	left: 72%;
+	top: 60%;
+	left: 20%;
 	margin-bottom: 20px;
 	text-align: center;
 }
@@ -97,10 +96,14 @@ background: url("../images/circuit.png");
 
 }
 
+.dashDivM {
+	width: 400px;
+}
+
 .dashDivT {
 	background: #98ff98;
-	height: 600px;
-	width: 300px;
+	height: 250px;
+	width: 500px;
 	border-radius: 2px;
 	box-shadow: 5px 5px 6px #111;
 
@@ -108,8 +111,8 @@ background: url("../images/circuit.png");
 
 .dashDivR {
 	background: #98ff98;
-	height: 275px;
-	width: 630px;
+	height: 450px;
+	width: 275px;
 	border-radius: 2px;
 	box-shadow: 5px 5px 6px #111;
 
@@ -125,6 +128,8 @@ textarea {
 	border: none;
 	box-shadow: 1px 1px 2px #009933;
 	height: 40px;
+	font-size: 18px;
+	font-family: Space Mono;
 }
 
 .message::-webkit-input-placeholder {
@@ -223,12 +228,14 @@ input[type=time] {
 .reminderx {
 	background-color: #fff;
 	margin: 10px;
+	margin-left: 20px;
 	border: 1px solid #383838;
 	padding: 0px;
-	width: 275px;
+	width: 90%;
 	font-family: Space Mono;
 	height: 65px;
 	color: #000;
+	text-align: left;
 
 }
 
@@ -305,7 +312,6 @@ p {
 
 .dropdown-content {
     display: none;
-    position: absolute;
 
 }
 
@@ -326,8 +332,9 @@ p {
 .dropdown:hover .dropdown-content {
     display: block;
     position: absolute;
-    right: -25px;
-    top: 5px;
+    right: -10px;
+    top: 12px;
+
 }
 
 .dropdown:hover .mngBtn {
@@ -344,6 +351,8 @@ p {
     font-size: 14px;
     margin-top: 0px;
 	background-color: rgba(51, 110, 45, 0.9);
+	height: 100%;
+	width: 100%;
 }
 
 #update:hover {
@@ -387,7 +396,6 @@ p {
 
 li {
 	margin-bottom: 10px;
-	margin-top: 0px;
 	padding: 0px;
 	list-style-type: none;
 
@@ -403,6 +411,7 @@ li {
 	width: 100%;
 	height: 100%;
 	background: rgba(255, 255, 230, 0.8);
+	overflow: auto;
 }
 
 
@@ -415,6 +424,7 @@ li {
 	width: 100%;
 	height: 100%;
 	background: rgba(255, 255, 230, 0.8);
+	overflow: auto;
 }
 
 .templatex {
@@ -429,6 +439,7 @@ li {
 	color: #fff;
 	font-family: Space Mono;
 	font-size: 16px;
+	overflow: auto;
 	
 }
 

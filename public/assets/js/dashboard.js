@@ -5,17 +5,16 @@ var span = document.getElementsByClassName("close")[0];
 
   var userName = "";
   var userId = "";
-  var userPhone = "";
-
 
   var messageInput = $('[name=reminder]');
   var beginDateInput = $('[name=begin-date]');
   var beginTimeInput = $('[name=when]');
   var frequencyInput = $('[name=freq]');
-  var reminderForm = $("#setup");
+
 
 function clearSubmitForm(){
   $("#remind").attr("data-mode","create").text("Remind Me");
+  $("#mode-title").text("create");
   messageInput.val("");
   beginDateInput.val("");
   beginTimeInput.val("");
@@ -29,24 +28,8 @@ function submitReminder(reminder) {
 
     var reminderId = data.id;
      $.get("/api/reminder/"+ data.id, function(dbTasks){
-      alert("ran successfully");
-
     });
   
-
-
-    //Ilona
-
-   //all data needed to schedule a text is here - maybe this is the best place to put it?
-
-    // alert(userName);
-    // alert(reminder.message);
-    // alert(userPhone);
-    // alert(reminder.begin_date);
-    // alert(reminder.begin_time);
-    // alert(reminder.frequency);
-
-
     window.location.href="/dashboard";
   });
 }
@@ -62,9 +45,6 @@ function deleteReminder(reminderId){
       url: "/api/reminder/" + reminderId
     })
     .done(function() {
-
-      //Ilona - you may need to put the delete scheduled text, but I don't know what data you need do that
-
       window.location.href="/dashboard";
     });
 
@@ -79,19 +59,14 @@ function updateReminder(reminder) {
       data: reminder
     })
     .done(function() {
-
-        //ditto the above comment for the delete. the data y ou need to add a new scheduled reminder should be accessible here.
       window.location.href = "/dashboard";
     });
   }
 
 
-
+// handleFormSubmit is used to both add a reminder and to update a reminder.
 function handleFormSubmit(event){
     event.preventDefault();
-
-
-
 
     if ($("#remind").attr("data-mode")==="create") {
 
@@ -102,8 +77,7 @@ function handleFormSubmit(event){
         frequency: frequencyInput.val().trim(),
         UserId: userId
       } //end newReminder
-
-      submitReminder(newReminder);
+        submitReminder(newReminder);
     } //end if
 
     else if ($("#remind").attr("data-mode") === "update"){
@@ -114,14 +88,18 @@ function handleFormSubmit(event){
         frequency: frequencyInput.val().trim(),
         UserId: userId,
         id: $("#remind").attr("data-id")
-      
-
-    } //end uReminder
-      $("#remind").attr("data-mode", "create").text("Remind Me");
-      updateReminder(uReminder);
+      } //end uReminder
+        $("#remind").attr("data-mode", "create").text("Remind Me");
+        $("#mode-title").text("create");
+        updateReminder(uReminder);
     }//end else if
 
 }
+
+
+//when a user asks to update an existing reminder, this function gets that chosen reminder and displays
+// its data in the form for editing. We do a fresh get on this reminder id just in case the user deleted it
+// or updated it from a different window. I know - unlikely, but still....
 
 function editReminder(reminderId){
   $.get("/api/reminder/" + reminderId).then(function(data){
@@ -134,6 +112,8 @@ function editReminder(reminderId){
 
 }
 
+
+// these tasks show up in the template window as suggested tasks for making reminders
 function displayTasks(){
   $.get("/api/tasks", function(dbTasks){
       if (dbTasks){
@@ -150,14 +130,18 @@ function displayTasks(){
 
 }
 
+
+// get any reminders that use has made in the past and display them for the user
+
 function displayReminders(){
-    //figure out which user is logged in and save off the user id for use later
+    //figure out which user is logged in and save off the user id for use later. Can't get the reminders without
+    // the userId, so put the get for reminders in the call back.
 
   $.get("/api/user-data").then(function(data) {
     // $(".user-name").text(data.name); this line was for welcoming the user by name in on old vesion
       userName = data.name;
       userId = data.id;
-      userPhone = data.phone;
+
 
       $(".member-name").text(userName);
 
@@ -194,20 +178,6 @@ function displayReminders(){
               reminderDisplay += "</div><br>"
 
 
-        // <p class="reminderHead">Feed the chickens.</p>
-        // <p class="reminderInfo" id="date">3/25/2017</p>
-        // <p class="reminderInfo" id="time">3:55PM</p>
-        // <p class="reminderInfo" id="freq">Daily</p>
-        // <div class="dropdown">
-        //   <button class="mngBtn"></button><div id='mngRect'></div>
-        //   <div class="dropdown-content">
-        //       <button id="update">update</button><br><!-- INCLUDE THIS BREAK -->
-        //       <button id="delete">delete</button>
-
-
-
-
-
               $("#userReminders").append(reminderDisplay);
 
             }
@@ -220,6 +190,7 @@ function displayReminders(){
 //code execution begins here
 
 $(document).ready(function() {
+
 
   displayReminders();
   displayTasks();   
@@ -242,7 +213,8 @@ $(document).ready(function() {
 
   $(document).on("click", ".edit", function(e){
         e.preventDefault();
-        $("#remind").attr("data-mode", "update").text("Update");
+        $("#remind").attr("data-mode", "update").text("Update")
+        $("#mode-title").text("update");
         editReminder($(this).attr("data-id"));
       });
   

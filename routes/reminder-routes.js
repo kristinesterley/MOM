@@ -34,8 +34,8 @@ module.exports = function(app) {
     db.Reminder.findOne({
       where: {
         id: req.params.id
-      },
-      include: [db.User]
+      }
+      // include: [db.User]
     }).then(function(dbReminders) {
       
       res.json(dbReminders);
@@ -61,7 +61,6 @@ module.exports = function(app) {
           console.log(data.id); //reminder id
       });
 
-      // Ilona - I know that you want to put the schedule code here, but the user's phone number is not accessible here
 
       console.log(dbReminder.id);
       res.json(dbReminder);

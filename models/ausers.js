@@ -36,6 +36,9 @@ module.exports = function(sequelize, DataTypes) {
             associate: function(models) {
               // Associating User with Reminders
               // When an User is deleted, also delete any associated Reminders
+              // NOTE: this model must load before its corresponding belongsto model - that is why the 
+              // name of this file is ausers.js so that it loads before reminders.js and we believe the load
+              // is done alphabetically - this seems to be a sequelize bug
               User.hasMany(models.Reminder, {
                 onDelete: "cascade"
               });
@@ -48,20 +51,16 @@ module.exports = function(sequelize, DataTypes) {
           }
         },
     // Hooks are automatic methods that run during various phases of the User Model lifecycle
-    // In this case, before a User is created, we will automatically hash their password
+    // In this case, before a User is created, we will automatically hash their password and
+    // before a User password it updated, automatically hash the new password
+    // NOTE: beforeUpdate did not work here, but beforeBulkUpdate does!
         hooks: {
           beforeBulkUpdate: function(user) {
-            console.log("***************************");
-            console.log("password before " + user.attributes.password);
-            console.log(user);
-
-            user.attributes.password = bcrypt.hashSync(user.attributes.password, bcrypt.genSaltSync(10), null);
-            console.log("password after " + user.password);
-            // cb(null, options);
+            if (user.attributes.password){
+              user.attributes.password = bcrypt.hashSync(user.attributes.password, bcrypt.genSaltSync(10), null)
+            }
           },
           beforeCreate: function(user, options, cb) {
-            console.log("***************************");
-            console.log("create password before " + user.password);
             user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
             cb(null, options);
           }

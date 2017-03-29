@@ -25,13 +25,7 @@
       </a>
     </div>
 </nav>
-<!--   <div class="container">
-    <div class="row">
-      <div class="col-md-6 col-md-offset-3">
-        <h2>Welcome <span class="user-name"></span></h2>
-      </div>
-    </div>
-  </div> -->
+
 
 <!-- create/update reminders -->
 <div id="create" class='dashDivs'>
@@ -48,13 +42,9 @@
     <!-- date -->
     <p class='remInput date'>
     <label class="remLabel" for="day">START DATE</label><br>
-    <!-- ****I do not know if this can be used as is as well as alternatively with javascript (to generate date picker outside of forms type when browser reverts to text) -->
-<!-- <<<<<<< HEAD
 
-    <input type='date' class='form-control' name='begin-date'>
-======= -->
     <input type='date' class='form-control' name='begin-date' placeholder="mm/dd/yy">
-<!-- >>>>>>> chloe -->
+
     </p>
 
 
@@ -76,40 +66,22 @@
       </select>
     </p>
     <br>
-<!-- <<<<<<< HEAD
-    <button id="remind" data-mode="create" type='submit'>Remind me</button>
-    <button id="clear">Clear</button>
-======= -->
+
     <button id="remind" data-mode="create" type='submit'>remind me</button>
     <button id="clear">Clear</button>
-<!-- >>>>>>> chloe -->
+
   </form>
 </div>
 
 <!-- manage current reminders -->
-<div id="manage" class='dashDivs'>
+<div id="manage" class='dashDivs dashDivM'>
 <div class="reminderContainer">
   <h2 class="dashHeader">manage</h2>
     <div class="clearfix">
   <div id="userReminders">
 
 
-<!-- 
-        <p class="reminderHead">Feed the chickens.</p>
-        <p class="reminderInfo" id="date">3/25/2017</p>
-        <p class="reminderInfo" id="time">3:55PM</p>
-        <p class="reminderInfo" id="freq">Daily</p>
-        <div class="dropdown">
-          <button class="mngBtn"></button><div id='mngRect'></div>
-          <div class="dropdown-content">
-              <button id="update">update</button><br><! INCLUDE THIS BREAK -->
-             <!--  <button id="delete">delete</button> -->
-<!--           </div>
-        </div>  --> 
-<!-- >>>>>>> chloe
-    </li>
-    <br> INCLUDE THIS BREAK!
-  </ul> -->
+
 
   </div><!-- userReminders -->
   </div><!-- clearfix -->
@@ -119,7 +91,7 @@
 <div id="templates" class='dashDivT'>
 <div class="templateContainer">
   <h2 class="dashHeader">templates</h2>
-      <div class="clearfix" id='tasks'>
+      <div id='tasks'>
 
       </div><!-- clearfix -->
 
@@ -153,13 +125,6 @@
 
 
 
-<!-- help modal -->
-<!-- <div id="helpModal" class="modal">
-  <div class="modal-content">
-    <span class="close">&times;</span>
-     <p>Help info here!</p>
-  </div>
-</div> -->
 
   <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
   <script type="text/javascript" src="assets/js/dashboard.js"></script>

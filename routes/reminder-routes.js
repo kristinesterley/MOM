@@ -48,6 +48,7 @@ module.exports = function(app) {
   // POST route for saving a new reminder
   app.post("/api/reminder", function(req, res) {
     db.Reminder.create(req.body).then(function(dbReminder) {
+
       var rule;
 
     if(req.frequency==="once"){
@@ -79,6 +80,12 @@ module.exports = function(app) {
         });
       });
       jobs.push({id: dbReminder.dataValues.id, job: job});
+
+
+      // Ilona - I know that you want to put the schedule code here, but the user's phone number is not accessible here
+
+      console.log(dbReminder.id);
+
       res.json(dbReminder);
     });
   });

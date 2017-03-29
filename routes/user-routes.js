@@ -12,9 +12,6 @@ module.exports = function(app) {
     // So we're sending the user back the route to the members page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
 
-
-    // res.json("/reminder");
-
     res.json("/dashboard");
 
   });
@@ -67,6 +64,7 @@ module.exports = function(app) {
   });
 
 
+
 //If Twillio recieves a text, it sends a post request to a predefined URL. Right now the URL accesses a port on my (Ilona's) computer. When we get this on Heroku, I can change the Twilio settings to post to that site.
 app.post('/inbound', function(req, res) {
   var twilio = require('twilio');
@@ -77,5 +75,37 @@ app.post('/inbound', function(req, res) {
     res.end(twiml.toString());
   }
 });
+};
+
+
+//route for deleting a user account
+  app.delete("/api/user/:id", function(req, res) {
+
+    db.User.destroy({
+      where: {
+        id: req.params.id
+      }
+    }).then(function(dbUser) {
+      res.json(dbUser);
+    });
+  });
+
+
+    // PUT route for updating a user
+  app.put("/api/user", function(req, res) {
+    //Need to add changing of task; will do later
+
+    db.User.update(
+      req.body,
+      {
+        where: {
+          id: req.body.id
+        }
+      }).then(function(dbUser) {
+
+        res.json(dbUser);
+      });
+  });
+
 };
 

@@ -28,6 +28,9 @@ function submitReminder(reminder) {
   $.post("/api/reminder", reminder, function(data){
 
     var reminderId = data.id;
+     $.get("/api/reminder/"+ data.id, function(dbTasks){
+      alert("ran successfully");
+    });
   
 
 

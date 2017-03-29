@@ -34,9 +34,10 @@ module.exports = function(app) {
     db.Reminder.findOne({
       where: {
         id: req.params.id
-      }
-      // include: [db.User]
+      },
+      include: [db.User]
     }).then(function(dbReminders) {
+      
       res.json(dbReminders);
     });
   });
@@ -45,6 +46,20 @@ module.exports = function(app) {
   // POST route for saving a new reminder
   app.post("/api/reminder", function(req, res) {
     db.Reminder.create(req.body).then(function(dbReminder) {
+
+      db.Reminder.findOne({
+        where:{
+          id: dbReminder.id
+        },
+        include: [db.User]
+      }).then(function(data){
+          //ilona's code
+          console.log("&&&&&&&&&&&&&&&&&&&&&&");
+          console.log(data);
+          console.log(data.User.phone);
+          console.log(data.User.id);
+          console.log(data.id); //reminder id
+      });
 
       // Ilona - I know that you want to put the schedule code here, but the user's phone number is not accessible here
 

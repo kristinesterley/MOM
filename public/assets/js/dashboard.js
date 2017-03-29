@@ -136,7 +136,7 @@ function displayTasks(){
         var taskDisplay = "";
         for (var task in dbTasks){
 
-          taskDisplay += "<p class='templateHead task-item'>" + dbTasks[task].message + "</p><br>";
+          taskDisplay += "<div class='templatex task-item'><p class='templateHead'>" + dbTasks[task].message + "</p></div><br>";
 
         }
         $("#tasks").append(taskDisplay);
@@ -171,16 +171,36 @@ function displayReminders(){
               //so as not to confuse the user (moment converts the database time to local time, which for us subtracts 4 hours)
 
               var dateReformat = moment.utc(dateTime).format('MM/DD/YYYY hh:mm a');
-              reminderDisplay = "<p class='reminderHead'>" + dbReminders[rem].message + "</p>";
+             
+              reminderDisplay = "<div class='reminderx'>"
+              reminderDisplay += "<p class='reminderHead'>" + dbReminders[rem].message + "</p>";
               reminderDisplay += "<p class='reminderInfo' id='date'>" + dateReformat + "</p>";
+
+              //maybe need time here
               reminderDisplay += "<p class='reminderInfo' id='freq'>" + dbReminders[rem].frequency + "</p>";
               reminderDisplay += "<div class='dropdown'>"
-              reminderDisplay += "<button class='mngBtn'>...</button>"
+              reminderDisplay += "<button class='mngBtn'></button><div id='mngRect'></div>"
               reminderDisplay += "<div class='dropdown-content'>"
-              reminderDisplay += "<button class='edit' data-id=" + dbReminders[rem].id + ">edit</button><br>" //<!-- INCLUDE THIS BREAK -->
-              reminderDisplay += "<button class='delete' data-id=" + dbReminders[rem].id + ">delete</button>"
+              reminderDisplay += "<button id='update' class='edit' data-id=" + dbReminders[rem].id + ">update</button><br>" //<!-- INCLUDE THIS BREAK -->
+              reminderDisplay += "<button id='delete' class='delete' data-id=" + dbReminders[rem].id + ">delete</button>"
               reminderDisplay += "</div>"
-              reminderDisplay += "</div><br><br>"
+              reminderDisplay += "</div>"
+              reminderDisplay += "</div><br>"
+
+
+        // <p class="reminderHead">Feed the chickens.</p>
+        // <p class="reminderInfo" id="date">3/25/2017</p>
+        // <p class="reminderInfo" id="time">3:55PM</p>
+        // <p class="reminderInfo" id="freq">Daily</p>
+        // <div class="dropdown">
+        //   <button class="mngBtn"></button><div id='mngRect'></div>
+        //   <div class="dropdown-content">
+        //       <button id="update">update</button><br><!-- INCLUDE THIS BREAK -->
+        //       <button id="delete">delete</button>
+
+
+
+
 
               $("#userReminders").append(reminderDisplay);
 

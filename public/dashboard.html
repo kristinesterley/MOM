@@ -15,14 +15,15 @@
 </head>
 
 <body id="dashboardbody">
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
+
+  <nav class="fixedHeader">
     <div class="navbar-header">
-      <a class="navbar-brand" href="/logout">
-        Logout
+      <img id="logo" src="assets/images/momlg.png">
+      <h3 id='welcome'>Welcome home, <span class="member-name"></span>.</h3>
+      <a class="navbar-brand" id="logout" href="/logout">
+        logout
       </a>
     </div>
-  </div>
 </nav>
 <!--   <div class="container">
     <div class="row">
@@ -38,17 +39,22 @@
   <form id="setup" class='clearfix'>
 
     <!-- reminder -->
+    <h2 class="dashHeader">create</h2>
     <p class='formfield remInput reminder'>
     <label class="remLabel" for="reminder"></label>
-    <textarea rows='2' cols='32' class='form-control message' name='reminder' placeholder='YOUR REMINDER HERE'></textarea>
+    <textarea rows='2' cols='32' class='form-control message' name='reminder' placeholder='your reminder here...'></textarea>
     </p>
 
     <!-- date -->
     <p class='remInput date'>
     <label class="remLabel" for="day">START DATE</label><br>
     <!-- ****I do not know if this can be used as is as well as alternatively with javascript (to generate date picker outside of forms type when browser reverts to text) -->
+<!-- <<<<<<< HEAD
 
     <input type='date' class='form-control' name='begin-date'>
+======= -->
+    <input type='date' class='form-control' name='begin-date' placeholder="mm/dd/yy">
+<!-- >>>>>>> chloe -->
     </p>
 
 
@@ -70,45 +76,67 @@
       </select>
     </p>
     <br>
+<!-- <<<<<<< HEAD
     <button id="remind" data-mode="create" type='submit'>Remind me</button>
     <button id="clear">Clear</button>
+======= -->
+    <button id="remind" data-mode="create" type='submit'>remind me</button>
+    <button id="clear">Clear</button>
+<!-- >>>>>>> chloe -->
   </form>
 </div>
 
 <!-- manage current reminders -->
 <div id="manage" class='dashDivs'>
+<div class="reminderContainer">
+  <h2 class="dashHeader">manage</h2>
+    <div class="clearfix">
+  <div id="userReminders">
 
-  <ul>
-    <li>
-      <div class="reminderContainer">
-      <div class="clearfix" id="userReminders">
-      <!-- this is where the list of user's reminders stored in database goes -->
-       
-      </div><!-- clearfix -->
-      </div><!-- reminder container -->
+
+<!-- 
+        <p class="reminderHead">Feed the chickens.</p>
+        <p class="reminderInfo" id="date">3/25/2017</p>
+        <p class="reminderInfo" id="time">3:55PM</p>
+        <p class="reminderInfo" id="freq">Daily</p>
+        <div class="dropdown">
+          <button class="mngBtn"></button><div id='mngRect'></div>
+          <div class="dropdown-content">
+              <button id="update">update</button><br><! INCLUDE THIS BREAK -->
+             <!--  <button id="delete">delete</button> -->
+<!--           </div>
+        </div>  --> 
+<!-- >>>>>>> chloe
     </li>
-    <br> <!-- INCLUDE THIS BREAK! -->
-  </ul>
+    <br> INCLUDE THIS BREAK!
+  </ul> -->
 
+  </div><!-- userReminders -->
+  </div><!-- clearfix -->
+</div><!-- reminder container -->
 </div>
 
-<div id="templates" class='dashDivs'>
-  <ul>
-    <li>
-      <div class="templateContainer"><!-- ON CLICK OF THIS DIV -->
-      <div class="clearfix" id="tasks">
-      <!-- this is where list of suggested tasks to use for creating reminders goes -->
+<div id="templates" class='dashDivT'>
+<div class="templateContainer">
+  <h2 class="dashHeader">templates</h2>
+      <div class="clearfix" id='tasks'>
+
       </div><!-- clearfix -->
-      </div><!-- template container -->
-    </li>
+
     <br> <!-- INCLUDE THIS BREAK! -->
-  </ul>
+
+    </div><!-- template container -->
 </div>
 
 <!-- resources -->
-<div id="resrc" class='dashDivs'>
- <br>
-  <a href="http://google.com">Resources shtuff</a>
+
+
+
+
+<div id="resrc" class='dashDivR'>
+<div class='resrcContainer'>
+  <h2 class="dashHeader">resources</h2>
+    <a href="http://google.com">Resources shtuff</a>
   <br><br>
   <a href="https://www.helpguide.org/articles/add-adhd/adult-adhd-attention-deficit-disorder-self-help.htm">Tips for Managing Adult ADHD or ADD</a>
   <br><br>
@@ -119,6 +147,8 @@
 
 
    <button id="user-maintenance">Account</button>
+</div><!--  resources container -->
+
 </div>
 
 

@@ -30,6 +30,7 @@ function submitReminder(reminder) {
     var reminderId = data.id;
      $.get("/api/reminder/"+ data.id, function(dbTasks){
       alert("ran successfully");
+
     });
   
 
@@ -157,6 +158,8 @@ function displayReminders(){
       userName = data.name;
       userId = data.id;
       userPhone = data.phone;
+
+      $(".member-name").text(userName);
 
       //now get any reminders that this user has already created
 

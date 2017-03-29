@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MOM</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+</head>
+<body id="indexbody">
+
+<div class="greet">
+
+<h1>Hi, honey</h1>
+
+<!-- login form -->
+<form class="login">
+	<!-- Name -->
+    	<input type="text" class="form-control" id="name-input" placeholder="Name">
+   	<br>
+ 	<!-- Password -->
+        <input type="password" class="form-control" id="password-input" placeholder="Password">
+    <br>
+    <button type="submit" class="btn">Login</button>
+</form>
+
+<p> &nbsp; No login? <br><button id="altSignUpBtn" class="btn">Sign up</button></p>
+</div><!-- greet -->
+
+
+<!-- sign up alt -->
+<div id="signupModal" class="modal">
+	<div class="modal-content">
+		<span class="close">&times;</span>
+		 <form class="signup">
+            <!-- Name -->
+            	<input type="text" class="form-control" id="name-signup-input" placeholder="Name">
+            <br>
+            <!-- Password -->
+            	<input type="password" class="form-control" id="password-signup-input" placeholder="Password">
+            <br>
+            <!-- Number -->
+            	<!-- title='Phone Number (Format: (999)999-9999)' -->
+            	<!-- pattern='[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}' -->
+				<input type='tel' class='form-control' id="phone-signup-input" name='phone'  placeholder="(888)888-8888"> 
+            <br>
+          <button type="submit" id="signUpBtn" class="btn">Sign Up</button>
+        </form>
+	</div>
+</div><!-- signup modal -->
+
+
+
+<!-- javascript sources -->
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+<script type="text/javascript" src="assets/js/login.js"></script>
+<script type="text/javascript" src="assets/js/signup.js"></script>
+	
+</body>
+</html>

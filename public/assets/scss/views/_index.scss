@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Space+Mono');
+
+h1 {
+	color: #fff;
+	font-family: Space Mono;
+	margin: 0 auto;
+}
+
+.greet {
+	width: 300px;
+	display: inline-block;
+	margin-left: 65%;
+	margin-top: 28%;
+	clear: both;
+	text-align: center;
+
+}
+
+::-webkit-input-placeholder {
+	color: #fff;
+	font-size: 18px;
+}
+
+.greet input {
+	width: 100%;
+	clear: both;
+	padding: 10px;
+	background-color: transparent;
+	color: #fff;
+
+}
+
+.btn {
+	background-color: #444; 
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px;
+}
+
+#altSignUpBtn {
+	background-color: #fff;
+	border: #444 1px solid;
+	padding: 5px 5px;
+	font-size: 14px;
+	margin-top: 0px;
+	color: #444
+}
+
+#indexbody {
+  background: linear-gradient(rgba(120, 120, 120, 0.50), rgba(120, 120, 120, 0.50)), rgba(0,0,0,0.4) url("../images/mom.jpg") center fixed;
+  background-size: cover;
+  width: 1024px;
+}
+
+p {
+	font-size: 16px;
+	margin-right: 4px;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #444;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 20%;
+    text-align: center;
+}
+
+.signup {
+	border: 1px #fff solid;
+	padding: 20px;
+	height: 250px;
+	align-content: center;
+	background-color: #888;
+	padding-top: 20%;
+}
+
+.signup input {
+	padding: 10px;
+	margin: 2px;
+	background-color: transparent;
+	font-size: 16px;
+}
+
+
+
+/* The Close Button */
+.close {
+    color: #fff;
+    float: right;
+	margin-right: 5px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -1,3 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Amatic+SC|Space+Mono");
+* {
+  box-sizing: border-box; }
+
+body {
+  font-size: 20px;
+  font-family: arial;
+  color: #222; }
+  
 form.signup, form.login {
   margin-top: 50px;
 }
@@ -37,3 +46,295 @@ input.new-item:focus {
 .edit {
   width: 100%;
 }
+
+
+
+.container {
+  max-width: 960px;
+  margin: 40px auto; }
+
+.formfield * {
+  vertical-align: middle; }
+
+h1 {
+  color: #fff;
+  font-family: Space Mono;
+  margin: 0 auto; }
+
+.greet {
+  width: 300px;
+  display: inline-block;
+  margin-left: 65%;
+  margin-top: 28%;
+  clear: both;
+  text-align: center; }
+
+::-webkit-input-placeholder {
+  color: #fff;
+  font-size: 18px; }
+
+.greet input {
+  width: 100%;
+  clear: both;
+  padding: 10px;
+  background-color: transparent;
+  color: #fff; }
+
+.btn {
+  background-color: #444;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px; }
+
+#altSignUpBtn {
+  background-color: #fff;
+  border: #444 1px solid;
+  padding: 5px 5px;
+  font-size: 14px;
+  margin-top: 0px;
+  color: #444; }
+
+#indexbody {
+  background: linear-gradient(rgba(120, 120, 120, 0.5), rgba(120, 120, 120, 0.5)), rgba(0, 0, 0, 0.4) url("../images/mom.jpg") center fixed;
+  background-size: cover;
+  width: 1024px; }
+
+p {
+  font-size: 16px;
+  margin-right: 4px; }
+
+/* The Modal (background) */
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: black;
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */ }
+
+/* Modal Content */
+.modal-content {
+  background-color: #444;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 20%;
+  text-align: center; }
+
+.signup {
+  border: 1px #fff solid;
+  padding: 20px;
+  height: 250px;
+  align-content: center;
+  background-color: #888;
+  padding-top: 20%; }
+
+.signup input {
+  padding: 10px;
+  margin: 2px;
+  background-color: transparent;
+  font-size: 16px; }
+
+/* The Close Button */
+.close {
+  color: #fff;
+  float: right;
+  margin-right: 5px;
+  font-size: 28px;
+  font-weight: bold; }
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer; }
+
+/*dashboard*/
+#dashboardbody {
+  background: #fff;
+  /*temp bg*/ }
+
+#create {
+  position: fixed;
+  top: 80px;
+  left: 200px;
+  overflow-y: auto;
+  text-align: center; }
+
+#manage {
+  position: fixed;
+  top: 80px;
+  left: 900px; }
+
+#resrc {
+  position: fixed;
+  top: 400px;
+  left: 200px; }
+
+#templates {
+  position: fixed;
+  top: 400px;
+  left: 900px; }
+
+.dashDivs {
+  background-color: rgba(238, 219, 237, 0.3);
+  height: 250px;
+  width: 450px;
+  border-radius: 2px; }
+
+#setup {
+  width: 80%;
+  margin: 0 auto; }
+
+textarea {
+  width: 300px;
+  height: 30px; }
+
+.message::-webkit-input-placeholder {
+  color: #777;
+  font-size: 14px;
+  font-family: arial; }
+
+#remind {
+  border: none;
+  padding: 10px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  margin-top: 0px; }
+
+#remind {
+  color: #fff;
+  border-radius: 2px;
+  background: url("../images/clock.svg") no-repeat;
+  background-color: #9b8182; }
+
+#remind:hover {
+  color: #e6d7dd; }
+
+#remind:focus {
+  outline: none; }
+
+#remind:active {
+  color: #d8d7dd; }
+
+.remLabel {
+  font-family: arial;
+  font-size: 10px;
+  color: #666; }
+
+.date {
+  float: left;
+  margin-left: 52px; }
+
+input[type=date] {
+  border: 1px solid #9b8182;
+  background-color: transparent; }
+
+input[type=time] {
+  border: 1px solid #9b8182;
+  background-color: transparent; }
+
+.time {
+  float: left; }
+
+.reminder {
+  margin-top: 8%; }
+
+.reminderInfo {
+  float: left;
+  margin: 5px; }
+
+.freq {
+  margin-bottom: 0px; }
+
+.formfield {
+  margin-bottom: 0px; }
+
+.mngBtn {
+  float: right;
+  background-color: #4CAF50;
+  color: white;
+  padding: 3px;
+  border: none;
+  cursor: pointer; }
+
+.dropdown {
+  position: relative;
+  display: block;
+  float: right; }
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1; }
+
+.dropdown-content a {
+  color: black;
+  padding: 2px;
+  text-decoration: none;
+  display: block; }
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1; }
+
+.dropdown:hover .dropdown-content {
+  display: block; }
+
+.dropdown:hover .mngBtn {
+  background-color: #3e8e41; }
+
+li {
+  margin-bottom: 10px;
+  margin-top: 0px;
+  list-style-type: none; }
+
+.reminderHead {
+  margin-top: 0px;
+  margin-bottom: 0px; }
+
+.reminderContainer {
+  border: 1px solid black;
+  padding: 0px; }
+
+.templateHead {
+  margin-top: 0px;
+  margin-bottom: 0px; }
+
+.templateContainer {
+  border: 1px solid black;
+  padding: 0px; }
+
+.templateInfo {
+  float: left;
+  margin: 5px; }
+
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0px;
+  clear: both; }
+
+/*# sourceMappingURL=styles.css.map */
+

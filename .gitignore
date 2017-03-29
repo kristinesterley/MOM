@@ -1,8 +1,6 @@
-# Logs
-logs
-*.log
-npm-debug.log*
+public/assets/.sass-cache
 
+<<<<<<< HEAD
 # Runtime data
 pids
 *.pid
@@ -37,3 +35,6 @@ jspm_packages
 .node_repl_history
 .DS_Store
 public/assets/.sass-cache
+
+node_modules/
+

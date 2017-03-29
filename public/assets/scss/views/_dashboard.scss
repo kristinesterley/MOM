@@ -1,0 +1,216 @@
+
+/*dashboard*/
+#dashboardbody {
+background: #fff; /*temp bg*/
+}
+
+#create {
+	position: fixed;
+	top: 80px;
+	left: 200px;
+	overflow-y: auto;
+	text-align: center;
+}
+
+#manage {
+	position: fixed;
+	top: 80px;
+	left: 900px;
+}
+
+#resrc {
+	position: fixed;
+	top: 400px;
+	left: 200px;
+}
+
+#templates {
+	position: fixed;
+	top: 400px;
+	left: 900px;
+}
+
+.dashDivs {
+	background-color: rgba(238,219,237, 0.3);
+	height: 250px;
+	width: 450px;
+	border-radius: 2px;
+
+}
+
+#setup {
+	width: 80%;
+	margin: 0 auto;
+}
+
+textarea {
+	width: 300px;
+	height: 30px;
+}
+
+.message::-webkit-input-placeholder {
+	color: #777;
+	font-size: 14px;
+	font-family: arial;
+}
+
+#remind {
+
+    border: none;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    margin-top: 0px;
+
+
+}
+
+#remind {
+  color: #fff;
+  border-radius: 2px;
+  background: url("../images/clock.svg") no-repeat;
+  background-color: #9b8182;
+}
+
+#remind:hover {
+  color: #e6d7dd;
+}
+
+#remind:focus {
+	outline: none;
+}
+
+
+#remind:active {
+  color: #d8d7dd;
+}
+
+.remLabel {
+	font-family: arial;
+	font-size: 10px;
+	color: #666;
+}
+
+.date {
+	float: left;
+	margin-left: 52px;
+	// background-color: transparent;
+	// border: 2px solid #9b8182
+
+}
+
+input[type=date] {
+	border: 1px solid #9b8182;
+	background-color: transparent;
+}
+
+input[type=time] {
+	border: 1px solid #9b8182;
+	background-color: transparent;
+}
+
+.time {
+	float: left;
+}
+
+.reminder {
+	margin-top: 8%;
+}
+
+.reminderInfo {
+	float: left;
+	margin: 5px;
+}
+
+.freq {
+	margin-bottom: 0px;
+}
+
+.formfield {
+	margin-bottom: 0px;
+}
+
+
+.mngBtn {
+	float:right;
+    background-color: #4CAF50;
+    color: white;
+    padding: 3px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: block;
+    float: right;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 2px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .mngBtn {
+    background-color: #3e8e41;
+}
+
+li {
+	margin-bottom: 10px;
+	margin-top: 0px;
+	list-style-type: none;
+
+}
+
+.reminderHead {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.reminderContainer {
+	border: 1px solid black;
+	padding: 0px;
+}
+
+
+.templateHead {
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+.templateContainer {
+	border: 1px solid black;
+	padding: 0px;
+}
+
+.templateInfo {
+	float: left;
+	margin: 5px;
+}
+
+.clearfix:after { 
+   content: "";
+   display: block; 
+   height: 0px; 
+   clear: both;
+}
+
+
+

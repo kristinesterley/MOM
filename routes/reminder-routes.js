@@ -1,6 +1,9 @@
 
 // Dependencies
 // =============================================================
+var jobs = require("../data/reminderJobs");
+var schedule = require("node-schedule");
+var client = require("twilio")('AC0a6299bb7d45d1278e6ea833ca48f138', '2ffdc74281f5b03a3210666bbae1ea50');
 
 // Requiring our models
 var db = require("../models");
@@ -16,50 +19,92 @@ module.exports = function(app) {
     // We set the value to an array of the models we want to include in a left outer join
     // In this case, just db.Author
     db.Reminder.findAll({
+      order: '`message` ASC',
       where: {
         UserId: req.params.user_id
-      },
-      include: [db.User]
+      }
+      // include: [db.User] //don't think I need this include
     }).then(function(dbReminders) {
       res.json(dbReminders);
     });
   });
 
-  // Get rotue for retrieving a single post
+  // Get rotue for retrieving a single reminder
   app.get("/api/reminder/:id", function(req, res) {
     // Here we add an "include" property to our options in our findOne query
     // We set the value to an array of the models we want to include in a left outer join
-    // In this case, just db.Author
+    // In this case, just db.User
     db.Reminder.findOne({
       where: {
         id: req.params.id
-      },
-      include: [db.User]
+      }
+      // include: [db.User]
     }).then(function(dbReminders) {
       res.json(dbReminders);
     });
   });
 
-  // POST route for saving a new post
-  app.post("/api/reminder", function(req, res) {
 
+  // POST route for saving a new reminder
+  app.post("/api/reminder", function(req, res) {
     db.Reminder.create(req.body).then(function(dbReminder) {
+      var rule;
+
+    if(req.frequency==="once"){
+      var rule = req.begin_date.substring(14, 16)+ " "+req.begin_date.substring(11,13)+" "+req.begin_date.substring(8,10)+" "+req.begin_date.substring(5,7)+" *";
+      console.log(rule);
+      
+    }
+    else if(req.frequency === "monthly"){
+      var rule = req.begin_date.substring(14, 16)+ " "+req.begin_date.substring(11,13)+" "+req.begin_date.substring(8,10)+" * *";
+
+    }
+    else if(req.frequency ==="daily"){
+      var rule = req.begin_date.substring(14, 16)+ " "+req.begin_date.substring(11,13)+" * * *";
+    
+    }
+    else if(req.frequency ==="weekly"){
+      var day;//need to figure out which weekday the start date is
+      var rule = req.begin_date.substring(14, 16)+ " "+req.begin_date.substring(11,13)+" * * "+ day; 
+    }
+
+    var job = schedule.scheduleJob(rule, function(){
+        var num; //this needs to be the user's phone number with "+1" concatinated at the beginning
+        client.messages.create({
+          to: num,
+          from: "+12409492233", //this is the number assigned to this app by twilio
+          message: req.message;
+        }).then(function(err, message){
+          if(err){console.log(err);}
+        });
+      });
+      jobs.push({id: dbReminder.dataValues.id, job: job});
       res.json(dbReminder);
     });
   });
 
-  // DELETE route for deleting posts
+  // DELETE route for a reminder to delete
   app.delete("/api/reminder/:id", function(req, res) {
+    for(i=0;i<jobs.length;i++){
+      if(jobs[i].id ===eq.params.id){
+        jobs[i].job.cancel();
+        break;
+      }
+    }
     db.Reminder.destroy({
       where: {
         id: req.params.id
       }
     }).then(function(dbReminders) {
+
+      // Ilona - don't know how you will specify which text needs to be deleted from the schedule
+
+
       res.json(dbReminders);
     });
   });
 
-  // PUT route for updating posts
+  // PUT route for updating a reminder
   app.put("/api/reminder", function(req, res) {
     db.Reminder.update(
       req.body,
@@ -68,6 +113,11 @@ module.exports = function(app) {
           id: req.body.id
         }
       }).then(function(dbReminders) {
+
+        // Ilona code to update previously scheduled texts could go here, but same problem with create - phone number not available here
+        // might need to delete the previously scheduled one and add a new one?
+        // if that's the case, then you may need to do this processing in the appropriate function in dashboard.js
+
         res.json(dbReminders);
       });
   });

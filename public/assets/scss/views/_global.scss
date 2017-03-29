@@ -1,0 +1,18 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-size: 20px;
+	font-family: arial;
+	color: #222;
+
+}
+
+.container {
+	max-width: 960px;
+	margin: 40px auto;
+}
+.formfield * {
+	vertical-align: middle;
+}

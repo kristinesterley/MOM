@@ -136,7 +136,7 @@ function displayTasks(){
         var taskDisplay = "";
         for (var task in dbTasks){
 
-          taskDisplay += "<div class='templatex task-item'><p class='templateHead'>" + dbTasks[task].message + "</p></div><br>";
+          taskDisplay += "<div class='templatex task-item'><p class='templateHead'>" + dbTasks[task].message + "</p></div><br><br>";
 
         }
         $("#tasks").append(taskDisplay);

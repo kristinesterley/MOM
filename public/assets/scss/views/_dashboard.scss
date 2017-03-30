@@ -44,28 +44,38 @@ background: url("../images/circuit.png");
 
 #create {
 	position: absolute;
-	top: 15%;
-	left: 10%;
+	top: 20%;
+	left: 20%;
 	overflow-y: auto;
 	text-align: center;
 }
 
 #manage {
 	position: absolute;
-	top: 15%;
-	left: 38%;
+	top: 20%;
+	left: 52%;
 	text-align: center;
+	overflow: auto;
+}
+
+#account {
+	position: absolute;
+	top: 114%;
+	left: 63.5%;
 }
 
 #resrc {
+	background-color: #eaffd6;
 	position: absolute;
-	top: 15%;
-	left: 75%;
+	top: 100%;
+	left: 20%;
+	margin-bottom: 20px;
+	overflow: auto;
 }
 
 #templates {
 	position: absolute;
-	top: 60%;
+	top: 63%;
 	left: 20%;
 	margin-bottom: 20px;
 	text-align: center;
@@ -90,15 +100,64 @@ background: url("../images/circuit.png");
 
 .dashDivs {
 	background: #98ff98;
-	height: 275px;
-	width: 300px;
+	height: 300px;
+	width: 500px;
 	border-radius: 2px;
 	box-shadow: 5px 5px 6px #111;
 
 }
 
 .dashDivM {
-	width: 400px;
+	width: 500px;
+	height: 590px;
+}
+
+.dashDivhelp {
+	position: absolute;
+	top: 100%;
+	left: 70%;
+}
+
+#help {
+	background: #eaffd6;
+	font-size: 50px;
+	color: #f4472b;
+	font-family: Orbitron;
+	border: solid 3px #f4472b;
+	border-radius: 50%;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	box-shadow: 5px 5px 2px;
+
+}
+
+#help:hover {
+	background: rgba(234, 255, 213, 0.9);
+	cursor: pointer;
+}
+
+.dashDivA {
+	width: 300px;
+	height: 200px;
+	text-align: center;
+}
+
+.dashAcctBtn {
+	margin: 0 auto;
+	width: 100%;
+	font-size: 35px;
+	color: #eaffd6;
+	font-family: Orbitron;
+	border: solid 1px #eaffd6;
+	background: rgba(248, 70, 43, 1);
+	box-shadow: 4px 4px 1px;
+}
+
+.dashAcctBtn:hover {
+	background: rgba(248, 70, 43, 0.9);
+	cursor: pointer;
 }
 
 .dashDivT {
@@ -112,10 +171,11 @@ background: url("../images/circuit.png");
 
 .dashDivR {
 	background: #98ff98;
-	height: 450px;
-	width: 275px;
+	height: 200px;
+	width: 700px;
 	border-radius: 2px;
 	box-shadow: 5px 5px 6px #111;
+	text-align: center;
 
 }
 
@@ -240,15 +300,6 @@ input[type=time] {
 
 }
 
-ul {
-	padding: 0px;
-	margin: 0px;
-}
-
-li {
-	padding: 0px;
-	margin: 0px;
-}
 
 p {
 	font-size: 18px;
@@ -477,7 +528,7 @@ li {
 .resrcContainer {
 	width: 100%;
 	height: 100%;
-	background: rgba(255, 255, 230, 0.8);
+	background: #eaffd6;
 }
 
 .clearfix:after { 

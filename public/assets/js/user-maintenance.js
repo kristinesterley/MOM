@@ -39,7 +39,7 @@ function deleteUserAccount(){
 
 function updatePassword(){
 	var user = {
-		password: $("#password-input").val().trim(),
+		password: $("#password-inputUM").val().trim(),
 		id: userId
 	}
 	$.ajax({

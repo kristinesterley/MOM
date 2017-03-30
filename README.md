@@ -32,7 +32,7 @@ Contributors
 
 Chloe Corrigan - Front end, design.
 Ilona Fleischer - Node Schedule, Twilio.
-Kristin Esterley - Client and serverside Javascript, Jquery, Passport, Sequelize.
+Kristin Esterley - Mysql,Passport, Sequelize.
 
 Future Work
 

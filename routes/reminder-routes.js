@@ -37,9 +37,10 @@ module.exports = function(app) {
     db.Reminder.findOne({
       where: {
         id: req.params.id
-      }
-      // include: [db.User]
+      },
+      include: [db.User]
     }).then(function(dbReminders) {
+      
       res.json(dbReminders);
     });
   });
@@ -47,9 +48,23 @@ module.exports = function(app) {
 
   // POST route for saving a new reminder
   app.post("/api/reminder", function(req, res) {
-    db.Reminder.create(req.body).then(function(dbReminder) {
+    var num="+1";
+      db.Reminder.create(req.body).then(function(dbReminder) {
 
-      var rule;
+      db.Reminder.findOne({
+        where:{
+          id: dbReminder.id
+        },
+        include: [db.User]
+      }).then(function(data){
+        num += data.User.phone;
+          //ilona's code
+          console.log("&&&&&&&&&&&&&&&&&&&&&&");
+          console.log(data);
+          console.log(data.User.phone);
+          console.log(data.User.id);
+          console.log(data.id); //reminder id
+      });
 
     if(req.frequency==="once"){
       var rule = req.begin_date.substring(14, 16)+ " "+req.begin_date.substring(11,13)+" "+req.begin_date.substring(8,10)+" "+req.begin_date.substring(5,7)+" *";
@@ -74,12 +89,13 @@ module.exports = function(app) {
         client.messages.create({
           to: num,
           from: "+12409492233", //this is the number assigned to this app by twilio
-          message: req.message;
+          message: req.body.message
         }).then(function(err, message){
           if(err){console.log(err);}
         });
       });
       jobs.push({id: dbReminder.dataValues.id, job: job});
+
 
 
       // Ilona - I know that you want to put the schedule code here, but the user's phone number is not accessible here
@@ -93,7 +109,7 @@ module.exports = function(app) {
   // DELETE route for a reminder to delete
   app.delete("/api/reminder/:id", function(req, res) {
     for(i=0;i<jobs.length;i++){
-      if(jobs[i].id ===eq.params.id){
+      if(jobs[i].id ===req.params.id){
         jobs[i].job.cancel();
         break;
       }

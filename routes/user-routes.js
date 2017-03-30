@@ -75,7 +75,7 @@ app.post('/inbound', function(req, res) {
     res.end(twiml.toString());
   }
 });
-};
+
 
 
 //route for deleting a user account
@@ -107,5 +107,5 @@ app.post('/inbound', function(req, res) {
       });
   });
 
-};
+}
 

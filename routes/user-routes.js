@@ -120,13 +120,13 @@ app.post('/inbound', function(req, res) {
   var twiml = new twilio.TwimlResponse();
   if(req.body.Body.toLowerCase().trim() === "start"){
     db.User.update(
-    {
+      {
       verified: true
-      }
+      },
 
       {
         where: {
-          phone: (res.body.From).substring(2);
+          phone: (res.body.From).substring(2)
         }
       }).then(function(dbUser) {
 

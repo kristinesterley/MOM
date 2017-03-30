@@ -27,6 +27,7 @@ $(document).ready(function() {
       password: password,
       phone: phone
     }).then(function(data) {
+      alert("inside the successful return");
 
       if (data.errors){
         alert("Your " + data.errors[0].path + " has issues.");
@@ -94,3 +95,7 @@ $(document).ready(function() {
 
 
 });
+
+
+
+

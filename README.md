@@ -6,7 +6,7 @@ A texting reminder service to keep you on track!
 
 Concept
 
-Do you forget appointments or tasks that need to be comleted by a certain date? Are the automated reminder applications that exist not working for you? Do you rely on texts for communication? MOM will send you a text to remind you to do the things you need to do. To use this application, a user must create an account with a phone number. Before the user is allowed to create reminders, the user must accept texts from the specified phone number. The application will then allow the user to log in and to request reminder texts, specifying the text reminder message, date, time and frequency. 
+Do you forget appointments or tasks that need to be completed by a certain date? Are the automated reminder applications that exist not working for you? Do you rely on texts for communication? MOM will send you a text to remind you to do the things you need to do. To use this application, a user must create an account with a phone number. Before the user is allowed to create reminders, the user must accept texts from the specified phone number. The application will then allow the user to log in and to request reminder texts, specifying the text reminder message, date, time and frequency. 
 
 Users also can update and delete their reminders.
 

@@ -21,7 +21,7 @@ module.exports = function(app) {
         if (dbUser.verified){
           res.json("/dashboard");
         }
-        //else do nothing?
+          res.json({});
  
         });
 
@@ -44,7 +44,8 @@ module.exports = function(app) {
       phone: req.body.phone
 
     }).then(function() {
-      res.redirect(307, "/api/login");
+      res.json({});
+      // res.redirect(307, "/api/login");
     }).catch(function(err) {
       res.json(err);
     });

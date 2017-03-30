@@ -1,11 +1,11 @@
 /*Responsiveness Dashboard*/
 
-@media screen and (min-width: 1140px) {
+@media screen and (max-width: 1140px) {
 
 #create {
 	position: absolute;
 	top: 20%;
-	left: 17%;
+	left: 10%;
 	overflow-y: auto;
 	text-align: center;
 }
@@ -20,23 +20,23 @@
 
 #account {
 	position: absolute;
-	top: 125%;
-	left: 63%;
+	top: 130%;
+	left: 66%;
 }
 
 #resrc {
 	background-color: #eaffd6;
 	position: absolute;
-	top: 110%;
-	left: 17%;
+	top: 115%;
+	left: 10%;
 	margin-bottom: 20px;
 	overflow: auto;
 }
 
 #templates {
 	position: absolute;
-	top: 68%;
-	left: 17%;
+	top: 70%;
+	left: 10%;
 	margin-bottom: 20px;
 	text-align: center;
 	overflow: auto;
@@ -44,13 +44,13 @@
 
 .dashDivhelp {
 	position: absolute;
-	top: 110%;
-	left: 71%;
+	top: 115%;
+	left: 75%;
 }
 }
 
 
-@media screen and (min-width: 900px) {
+@media screen and (max-width: 900px) {
 
 #create {
 	position: absolute;
@@ -71,7 +71,7 @@
 #account {
 	position: absolute;
 	top: 130%;
-	left: 65%;
+	left: 69%;
 }
 
 #resrc {

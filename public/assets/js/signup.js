@@ -15,14 +15,25 @@ $(document).ready(function() {
     // Does a post to the signup route. If succesful, we will send a text to the new user to verify that the phone number is correct
     // the user will be notified that he/she must respond positively to the text before being allowed to log in
   function signUpUser(name, password, phone) {
+
+
     $.post("/api/signup", {
       name: name,
       password: password,
       phone: phone
     }).then(function(data) {
 
+      if (data.errors){
+        alert("Your " + data.errors[0].path + " has issues.");
+        return;
+        }
       //this needs to be changed to a page/pop up with instructions about responding to the text
       //this is where a text needs to be sent to the user's phone with a request to respond 'Y'
+
+      nameInput.val("");
+      passwordInput.val("");
+      phoneInput.val("");
+    
       window.location.replace(data);
       
     }).catch(function(err) {
@@ -66,9 +77,7 @@ $(document).ready(function() {
 
     signUpUser(userData.name, userData.password, userData.phone);
 
-    nameInput.val("");
-    passwordInput.val("");
-    phoneInput.val("");
+
   });
 
 

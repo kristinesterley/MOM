@@ -367,6 +367,18 @@ textarea {
   font-size: 18px;
   font-family: Space Mono; }
 
+.resrcLink {
+  text-decoration: none;
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  color: #fff;
+  font-family: Orbitron;
+  font-size: 25px; }
+
+.resrcLink:hover {
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: black; }
+
 #clear {
   font-family: Space Mono;
   border: none;

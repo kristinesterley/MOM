@@ -751,7 +751,7 @@ li {
   border: 1px solid #f4472b; }
 
 /*Responsiveness Dashboard*/
-@media screen and (max-width: 1140px) {
+@media screen and (max-width: 1280px) {
   #create {
     position: absolute;
     top: 20%;

@@ -48,9 +48,10 @@ module.exports = function(app) {
 
   // POST route for saving a new reminder
   app.post("/api/reminder", function(req, res) {
+    console.log("post called");
     var num="+1";
       db.Reminder.create(req.body).then(function(dbReminder) {
-        console.log("created")
+        console.log("created");
       db.Reminder.findOne({
         where:{
           id: dbReminder.id

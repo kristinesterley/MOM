@@ -11,8 +11,12 @@ function showUserData(){
 	  	$("[name=phone]").val(data.phone);
 	  	userId = data.id;
 
+	  	$(".member-name").text(data.name);
+
 	});
 }	  
+
+
 
 
 function kickOut(){
@@ -78,7 +82,7 @@ function updatePhone(){
 $(document).ready(function() {
 	
 	showUserData();
-	$("#delete").on("click", deleteUserAccount);
+	$("#deleteact").on("click", deleteUserAccount);
 	$("#change-password").on("click", updatePassword);
 	$("#cancel").on("click", function(e){
 		e.preventDefault();

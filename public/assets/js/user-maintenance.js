@@ -1,11 +1,11 @@
 
 var userId;
 var url = window.location.search;
+var message = $("#message");
 
 function showUserData(){
 
 	  $.get("/api/user-data").then(function(data) {
-
 
 	  	$(".user-name").text(data.name);
 	  	$("[name=phone]").val(data.phone);
@@ -13,6 +13,7 @@ function showUserData(){
 
 	});
 }	  
+
 
 function kickOut(){
 	 window.location.href = '/logout';
@@ -25,7 +26,10 @@ function deleteUserAccount(){
      		 method: "DELETE",
       		url: "/api/user/" + userId
     	})
-    		.done(kickOut);
+    		.done(function(){
+    			//all previously scheduled texts must be deleted from Twilio!!!!!
+    			kickOut();
+    		});
   		}
 	}
 
@@ -34,15 +38,14 @@ function updatePassword(){
 		password: $("#password-input").val().trim(),
 		id: userId
 	}
-	
-
 	$.ajax({
       	method: "PUT",
       	url: "/api/user",
       	data: user
-
 	})
-	.done(alert("password change?"));
+	.done(function(){
+		message.text("Your password has been successfully updated.")
+	});
 }
 
 
@@ -59,7 +62,14 @@ function updatePhone(){
       	data: user
 
 	})
-	.done(alert("need to update existing scheduled texts"));
+	.done(function(){
+		showUserData();
+		message.text("Your phone number has been successfully updated. You will receive a verifiation text shortly.")
+		///need to update existing scheduled texts
+		//this is non trivial - previously scheduled texts need to be deleted or updated with the new phone number.
+		// if deleted, we need to loop through all reminders listed in the database and for reminders that
+		// the user is expecting in the future, new reminders must be scheduled with the new phone number
+		});
 }
 
 

@@ -68,7 +68,7 @@ function updatePhone(){
 	})
 	.done(function(){
 		showUserData();
-		message.text("Your phone number has been successfully updated. You will receive a verifiation text shortly.")
+		message.text("Your phone number has been successfully updated.")
 		///need to update existing scheduled texts
 		//this is non trivial - previously scheduled texts need to be deleted or updated with the new phone number.
 		// if deleted, we need to loop through all reminders listed in the database and for reminders that

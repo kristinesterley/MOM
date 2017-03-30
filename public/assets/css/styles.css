@@ -6,48 +6,6 @@ body {
   font-size: 20px;
   font-family: arial;
   color: #222; }
-  
-form.signup, form.login {
-  margin-top: 50px;
-}
-
-.todo-list {
-  margin-top: 75px;
-}
-
-.list-group-item {
-  height: 50px;
-  line-height: 2;
-}
-
-input.new-item {
-  width: 75%;
-  height: 35px;
-  margin-top: 25px;
-  margin-right: 25px;
-}
-
-.list-group-item.new-item {
-  height: 100px;
-}
-
-input.new-item:focus {
-  outline: none;
-}
-
-.list-group-item > button.delete,
-.list-group-item > button.complete {
-  float: right;
-  height: 25px;
-  margin-top: 3px;
-  line-height: 0.5;
-}
-
-.edit {
-  width: 100%;
-}
-
-
 
 .container {
   max-width: 960px;
@@ -227,7 +185,8 @@ p {
   top: 60%;
   left: 20%;
   margin-bottom: 20px;
-  text-align: center; }
+  text-align: center;
+  overflow: auto; }
 
 .dashHeader {
   margin: 0 auto;
@@ -500,10 +459,23 @@ li {
   margin-bottom: 0px; }
 
 .templateContainer {
+  background-color: #eaffd6; }
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 200px; }
+
+::-webkit-scrollbar-thumb {
+  background: #f4472b; }
+
+::-webkit-scrollbar-track {
+  background: #111; }
+
+#tasks {
   width: 100%;
   height: 100%;
-  background: rgba(255, 255, 230, 0.8);
-  overflow: auto; }
+  margin-bottom: 0px;
+  padding-bottom: 0px; }
 
 .templatex {
   position: absolute;
@@ -541,4 +513,3 @@ li {
   clear: both; }
 
 /*# sourceMappingURL=styles.css.map */
-

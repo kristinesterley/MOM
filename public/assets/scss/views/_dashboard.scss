@@ -69,6 +69,7 @@ background: url("../images/circuit.png");
 	left: 20%;
 	margin-bottom: 20px;
 	text-align: center;
+	overflow: auto;
 }
 
 .dashHeader {
@@ -420,11 +421,29 @@ li {
 	margin-bottom: 0px;
 }
 
+
 .templateContainer {
+ background-color: #eaffd6;
+}
+
+ ::-webkit-scrollbar {
+      width:  5px;
+      height: 200px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+      background: #f4472b;
+  }
+
+  ::-webkit-scrollbar-track {
+      background: #111;
+  }
+
+#tasks {
 	width: 100%;
 	height: 100%;
-	background: rgba(255, 255, 230, 0.8);
-	overflow: auto;
+	margin-bottom: 0px;
+	padding-bottom: 0px;
 }
 
 .templatex {

@@ -4,39 +4,54 @@
   <meta charset="UTF-8">
   <title>MOM</title>
 
+  <!-- css -->
+  <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
   <!-- Link to the jQuery Library -->
   <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
 
 </head>
 
-<body>
+<body id="altbody">
+
+  <nav class="fixedHeader">
+    <div class="navbar-header">
+      <img id="logo" src="assets/images/momlg.png">
+      <h3 id='welcome'><span class="member-name"></span>'s settings...</h3>
+      <a class="navbar-brand" id="logout" href="/logout">
+        logout
+      </a>
+    </div>
+</nav>
 
 
-       <h1 class="text-center">User Maintenance</h1>
+<h1 class="text-center">User Maintenance</h1>
 
-
-		<h2>User Name: <span class="user-name"></span></h2>
+<div class ="maintContainer">
+		<h2><span class="user-name"></span></h2>
         <form>
             <br>
             <!-- Password -->
-            	<input type="password" class="form-control" id="password-input" placeholder="Password">
+            	<input type="password" class="form-control editact" id="password-input" placeholder="Password">
             <br>
             <!-- Number -->
             	<!-- title='Phone Number (Format: (999)999-9999)' -->
             	<!-- pattern='[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}' -->
-				<input type='tel' class='form-control' id="phone-input" name='phone'  placeholder="(888)888-8888"> 
+				<input type='tel' class='form-control editact' id="phone-input" name='phone'  placeholder="(888)888-8888"> 
             <br>
-          <button type="button" class="btn btn-default" id="change-password">Change Password</button>
-          <button type="button" class="btn btn-default" id="change-phone">Change Phone Number</button>
-          <button type="button" class="btn btn-default" id="cancel">Exit</button>
-          <button type="button" class="btn btn-default" id="delete">Delete User Account</button>
+          <div class="buttonUMContainer">
+          <button type="button" class="btn btn-um" id="change-password">Change Password</button><br>
+          <button type="button" class="btn btn-um" id="change-phone">Change Phone Number</button><br>
+          <button type="button" class="btn btn-um" id="cancel">Exit</button><br>
+          <button type="button" class="btn btn-um" id="deleteact">Delete User Account</button>
+          </div>
 
         </form>
 
         <br><br>
 
         <p id="message"></p>
-
+</div>
 
   <script type="text/javascript" src="assets/js/user-maintenance.js"></script>
 

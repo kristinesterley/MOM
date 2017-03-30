@@ -14,9 +14,10 @@ h1 {
 
 }
 
-::-webkit-input-placeholder {
+.login::-webkit-input-placeholder {
 	color: #fff;
 	font-size: 18px;
+	font-family: Space Mono;
 }
 
 .greet input {

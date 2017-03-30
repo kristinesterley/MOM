@@ -1,0 +1,115 @@
+/*user maintenance*/
+
+.maintContainer {
+	position: relative;
+	width: 50%;
+	height: 500px;
+	background: #282828;
+	margin-top: 100px;
+	margin-left: 25%;
+	border: 2px solid #eaffd6;
+	box-shadow: 4px 4px 1px #eaffd6;
+}
+
+.editact::-webkit-input-placeholder {
+	color: #eaffd6;
+	font-size: 18px;
+	font-family: Space Mono;
+}
+
+.editact {
+	color: #eaffd6;
+	font-family: Space Mono;
+	font-size: 18px;
+	background: #282828;
+	outline: none;
+	border: 1px solid #eaffd6;
+	box-shadow: 2px 2px 1px;
+	margin: 5px;
+	padding: 5px;
+}
+
+.user-name {
+	position: absolute;
+	top: 10%;
+	left: 40%;
+	font-family: Orbitron;
+	padding: 5px;
+	font-size: 40px;
+	color: #f4472b;
+	background: #282828;
+}
+
+#password-input {
+	position: absolute;
+	top: 25%;
+	left: 33%;
+}
+
+#phone-input {
+	position: absolute;
+	top: 35%;
+	left: 33%;
+
+}
+
+.buttonUMContainer {
+	position: absolute;
+	top: 50%;
+	left: 36%;
+	text-align: center;
+}
+
+.btn-um {
+	font-family: Space Mono;
+	background: #8b8b8b;
+	padding: 5px;
+	color: #282828;
+	border: 1px solid #282828;
+}
+
+.btn-um:hover {
+	cursor: pointer;
+}
+
+#change-password:hover {
+	background: #eaffd6;
+	color: #f4472b;
+	border: 1px solid #f4472b;
+}
+
+#change-phone:hover {
+
+	background: #eaffd6;
+	color: #f4472b;
+	border: 1px solid #f4472b;
+
+}
+
+#cancel {
+
+	margin-top: 30px;
+	border: 1px solid #282828;
+
+}
+
+#deleteact {
+
+	margin-top: 30px;
+	font-size: 14px;
+	border: 1px solid #282828;
+
+}
+
+#deleteact:hover {
+
+	background: #f4472b;
+	border: 1px solid #eaffd6;
+	color: #eaffd6;
+}
+
+#cancel:hover {
+	background: #eaffd6;
+	color: #f4472b;
+	border: 1px solid #f4472b;
+}

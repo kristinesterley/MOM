@@ -27,9 +27,10 @@ h1 {
   clear: both;
   text-align: center; }
 
-::-webkit-input-placeholder {
+.login::-webkit-input-placeholder {
   color: #fff;
-  font-size: 18px; }
+  font-size: 18px;
+  font-family: Space Mono; }
 
 .greet input {
   width: 100%;
@@ -127,7 +128,7 @@ p {
   cursor: pointer; }
 
 /*dashboard*/
-#dashboardbody {
+#altbody {
   background: url("../images/circuit.png"); }
 
 .fixedHeader {
@@ -178,20 +179,20 @@ p {
 
 #account {
   position: absolute;
-  top: 114%;
-  left: 63.5%; }
+  top: 125%;
+  left: 61%; }
 
 #resrc {
   background-color: #eaffd6;
   position: absolute;
-  top: 100%;
+  top: 110%;
   left: 20%;
   margin-bottom: 20px;
   overflow: auto; }
 
 #templates {
   position: absolute;
-  top: 63%;
+  top: 68%;
   left: 20%;
   margin-bottom: 20px;
   text-align: center;
@@ -213,19 +214,19 @@ p {
 
 .dashDivs {
   background: #98ff98;
-  height: 300px;
-  width: 500px;
+  height: 310px;
+  width: 450px;
   border-radius: 2px;
   box-shadow: 5px 5px 6px #111; }
 
 .dashDivM {
-  width: 500px;
+  width: 450px;
   height: 590px; }
 
 .dashDivhelp {
   position: absolute;
-  top: 100%;
-  left: 70%; }
+  top: 110%;
+  left: 68%; }
 
 #help {
   background: #eaffd6;
@@ -266,14 +267,14 @@ p {
 .dashDivT {
   background: #98ff98;
   height: 250px;
-  width: 500px;
+  width: 450px;
   border-radius: 2px;
   box-shadow: 5px 5px 6px #111; }
 
 .dashDivR {
   background: #98ff98;
   height: 200px;
-  width: 700px;
+  width: 555px;
   border-radius: 2px;
   box-shadow: 5px 5px 6px #111;
   text-align: center; }
@@ -295,6 +296,22 @@ textarea {
   font-size: 18px;
   font-family: Space Mono; }
 
+#clear {
+  font-family: Space Mono;
+  border: none;
+  padding: 3px 3px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+  color: #fff;
+  width: 120px;
+  margin: 5px;
+  background: rgba(248, 70, 43, 0.9); }
+
+#clear:hover {
+  cursor: pointer;
+  background: #f8462b; }
+
 #remind {
   font-family: Space Mono;
   border: none;
@@ -302,7 +319,7 @@ textarea {
   text-align: center;
   text-decoration: none;
   font-size: 18px;
-  margin-top: 0px; }
+  margin-top: 15px; }
 
 #remind {
   color: #fff;
@@ -324,13 +341,13 @@ textarea {
 
 .remLabel {
   font-family: arial;
-  font-size: 10px;
+  font-size: 14px;
   color: #666; }
 
 .date {
   float: left;
   margin-top: 5px;
-  margin-left: 8%; }
+  margin-left: 25%; }
 
 input[type=date] {
   border: none;
@@ -353,7 +370,8 @@ input[type=time] {
   margin-top: 5px; }
 
 .reminder {
-  margin-top: 8%; }
+  margin-top: 20px;
+  margin-bottom: 5px; }
 
 .reminderx {
   background-color: #fff;
@@ -385,7 +403,8 @@ p {
   margin: 5px; }
 
 .freq {
-  margin-bottom: 0px; }
+  margin-bottom: 0px;
+  clear: both; }
 
 .formfield {
   margin-bottom: 0px; }
@@ -471,10 +490,10 @@ p {
   text-decoration: none;
   font-size: 14px;
   margin-top: 0px;
-  background-color: rgba(51, 110, 45, 0.9); }
+  background: rgba(248, 70, 43, 0.8); }
 
 #delete:hover {
-  background-color: rgba(231, 54, 48, 0.6); }
+  background: rgba(248, 70, 43, 0.6); }
 
 #delete:focus {
   outline: none; }
@@ -529,7 +548,7 @@ li {
   padding-top: 5px;
   padding-bottom: 1px;
   width: 80%;
-  background-color: gray;
+  background-color: #8b8b8b;
   color: #fff;
   font-family: Space Mono;
   font-size: 16px;
@@ -555,5 +574,97 @@ li {
   display: block;
   height: 0px;
   clear: both; }
+
+/*user maintenance*/
+.maintContainer {
+  position: relative;
+  width: 50%;
+  height: 500px;
+  background: #282828;
+  margin-top: 100px;
+  margin-left: 25%;
+  border: 2px solid #eaffd6;
+  box-shadow: 4px 4px 1px #eaffd6; }
+
+.editact::-webkit-input-placeholder {
+  color: #eaffd6;
+  font-size: 18px;
+  font-family: Space Mono; }
+
+.editact {
+  color: #eaffd6;
+  font-family: Space Mono;
+  font-size: 18px;
+  background: #282828;
+  outline: none;
+  border: 1px solid #eaffd6;
+  box-shadow: 2px 2px 1px;
+  margin: 5px;
+  padding: 5px; }
+
+.user-name {
+  position: absolute;
+  top: 10%;
+  left: 40%;
+  font-family: Orbitron;
+  padding: 5px;
+  font-size: 40px;
+  color: #f4472b;
+  background: #282828; }
+
+#password-input {
+  position: absolute;
+  top: 25%;
+  left: 33%; }
+
+#phone-input {
+  position: absolute;
+  top: 35%;
+  left: 33%; }
+
+.buttonUMContainer {
+  position: absolute;
+  top: 50%;
+  left: 36%;
+  text-align: center; }
+
+.btn-um {
+  font-family: Space Mono;
+  background: #8b8b8b;
+  padding: 5px;
+  color: #282828;
+  border: 1px solid #282828; }
+
+.btn-um:hover {
+  cursor: pointer; }
+
+#change-password:hover {
+  background: #eaffd6;
+  color: #f4472b;
+  border: 1px solid #f4472b; }
+
+#change-phone:hover {
+  background: #eaffd6;
+  color: #f4472b;
+  border: 1px solid #f4472b; }
+
+#cancel {
+  margin-top: 30px;
+  border: 1px solid #282828; }
+
+#deleteact {
+  margin-top: 30px;
+  font-size: 14px;
+  border: 1px solid #282828; }
+
+#deleteact:hover {
+  background: #f4472b;
+  border: 1px solid #eaffd6;
+  color: #eaffd6; }
+
+#cancel:hover {
+  background: #eaffd6;
+  color: #f4472b;
+  border: 1px solid #f4472b; }
 
 /*# sourceMappingURL=styles.css.map */

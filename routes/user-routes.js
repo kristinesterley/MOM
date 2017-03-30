@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 var db = require("../models");
 var passport = require("../config/passport");
+var client = require("twilio")('AC0a6299bb7d45d1278e6ea833ca48f138', '2ffdc74281f5b03a3210666bbae1ea50');
 
 module.exports = function(app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -44,8 +45,24 @@ module.exports = function(app) {
       phone: req.body.phone
 
     }).then(function() {
+// <<<<<<< HEAD
+      // res.json({});
+      // res.redirect(307, "/api/login");
+// =======
+      num = "+1" +req.body.phone; //this creates a phone number in the format twilio wants
+      client.messages.create({
+        to: num,
+        from: "+12409492233", //this is the number assigned to this app by twilio
+        body: "Welcome to MOM, the Memory Organization Module! Reply with 'start' to start recieving reminders"
+      }).then(function(err, message){
+        if(err){console.log(err);}
+        else{
+          console.log(num);
+        }
+      });
       res.json({});
       // res.redirect(307, "/api/login");
+// >>>>>>> ilona
     }).catch(function(err) {
       res.json(err);
     });
@@ -97,6 +114,33 @@ module.exports = function(app) {
 
 
 
+//If Twillio recieves a text, it sends a post request to a predefined URL. Right now the URL accesses a port on my (Ilona's) computer. When we get this on Heroku, I can change the Twilio settings to post to that site.
+app.post('/inbound', function(req, res) {
+  var twilio = require('twilio');
+  var twiml = new twilio.TwimlResponse();
+  if(req.body.Body.toLowerCase().trim() === "start"){
+    db.User.update(
+    {
+      verified: true
+      }
+
+      {
+        where: {
+          phone: (res.body.From).substring(2);
+        }
+      }).then(function(dbUser) {
+
+        res.json({});
+      });
+
+    twiml.message('Congratulations! You may now recieve reminders at this number.');
+    res.writeHead(200, {'Content-Type': 'text/xml'});
+    res.end(twiml.toString());
+  }
+
+});
+
+
 //route for deleting a user account
   app.delete("/api/user/:id", function(req, res) {
 
@@ -112,6 +156,7 @@ module.exports = function(app) {
 
     // PUT route for updating a user
   app.put("/api/user", function(req, res) {
+    //Need to add changing of task; will do later
 
     db.User.update(
       req.body,
@@ -125,4 +170,5 @@ module.exports = function(app) {
       });
   });
 
-};
+}
+

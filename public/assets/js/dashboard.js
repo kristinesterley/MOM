@@ -2,7 +2,6 @@ var modal = document.getElementById("helpModal");
 var btn = document.getElementById("help");
 var span = document.getElementsByClassName("close")[0];
 
-
   var userName = "";
   var userId = "";
 
@@ -25,11 +24,25 @@ function clearSubmitForm(){
 
 function submitReminder(reminder) {
   $.post("/api/reminder", reminder, function(data){
-
+    console.log("posted");
     var reminderId = data.id;
      $.get("/api/reminder/"+ data.id, function(dbTasks){
     });
   
+
+
+    //Ilona
+
+   //all data needed to schedule a text is here - maybe this is the best place to put it?
+
+    // alert(userName);
+    // alert(reminder.message);
+    // alert(userPhone);
+    // alert(reminder.begin_date);
+    // alert(reminder.begin_time);
+    // alert(reminder.frequency);
+
+
     window.location.href="/dashboard";
   });
 }

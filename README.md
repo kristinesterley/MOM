@@ -18,21 +18,32 @@ We are currently in testing phone. The final application is not available to the
 The list of technologies and tools used to complete this project is below.
 
 HTML
+
 CSS
+
 JavaScript
+
 jQuery
+
 Passport
+
 Mysql
+
 Sequelize
+
 Schedue
+
 Twilio
 
 
 Contributors
 
 Chloe Corrigan - Front end, design.
+
 Ilona Fleischer - Node Schedule, Twilio.
-Kristin Esterley - Mysql,Passport, Sequelize.
+
+Kristin Esterley - Mysql, Passport, Sequelize.
+
 
 Future Work
 

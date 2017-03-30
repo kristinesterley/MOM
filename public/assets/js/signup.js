@@ -12,18 +12,35 @@ $(document).ready(function() {
   var btn = document.getElementById("altSignUpBtn");
   var span = document.getElementsByClassName("close")[0];
 
+
+
+  var waitmodal = document.getElementById("waitModal");
+  var waitspan = document.getElementsByClassName("close")[2];
+
     // Does a post to the signup route. If succesful, we will send a text to the new user to verify that the phone number is correct
     // the user will be notified that he/she must respond positively to the text before being allowed to log in
   function signUpUser(name, password, phone) {
+
+
     $.post("/api/signup", {
       name: name,
       password: password,
       phone: phone
     }).then(function(data) {
 
-      //this needs to be changed to a page/pop up with instructions about responding to the text
-      //this is where a text needs to be sent to the user's phone with a request to respond 'Y'
-      window.location.replace(data);
+      if (data.errors){
+        alert("Your " + data.errors[0].path + " has issues.");
+        return;
+        }
+
+      nameInput.val("");
+      passwordInput.val("");
+      phoneInput.val("");
+
+      modal.style.display = "none";
+      waitModal.style.display = "block";
+    
+      // window.location.replace(data);
       
     }).catch(function(err) {
       console.log(err);
@@ -39,6 +56,10 @@ $(document).ready(function() {
   //When user clicks on <span> x, close the modal
   span.onclick = function() {
     modal.style.display = "none";
+  }
+
+  waitspan.onclick = function() {
+    waitmodal.style.display = "none";
   }
 
   //When user clicks outside of modal, close it
@@ -66,12 +87,14 @@ $(document).ready(function() {
 
     signUpUser(userData.name, userData.password, userData.phone);
 
-    nameInput.val("");
-    passwordInput.val("");
-    phoneInput.val("");
+
   });
 
 
 
 
 });
+
+
+
+

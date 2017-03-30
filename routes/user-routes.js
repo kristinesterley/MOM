@@ -12,7 +12,25 @@ module.exports = function(app) {
     // So we're sending the user back the route to the dashboard page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
 
-    res.json("/dashboard");
+    //here we need to make sure that the user has verified the phone number before allowing them in
+
+      db.User.findOne({
+        where: {
+          name: req.body.name
+        }
+      }).then (function(dbUser){
+        if (dbUser.verified){
+          res.json("/dashboard");
+        }
+          // res.json({});
+ 
+        });
+
+
+
+
+
+    // res.json("/dashboard");
 
   });
 
@@ -27,6 +45,7 @@ module.exports = function(app) {
       phone: req.body.phone
 
     }).then(function() {
+
       num = "+1" +req.body.phone; //this creates a phone number in the format twilio wants
       client.messages.create({
         to: num,
@@ -39,6 +58,10 @@ module.exports = function(app) {
         }
       });
       res.redirect(307, "/api/login");
+
+      res.json({});
+      // res.redirect(307, "/api/login");
+
     }).catch(function(err) {
       res.json(err);
     });
@@ -57,9 +80,10 @@ module.exports = function(app) {
       res.json({});
     }
     else {
-      //otherwise, use the req.user.id to get fresh user data
-      //this req.user.id seems to persist when using this route, in fact all of the user
-      // data persits, which is why we have to go get it again in case the user changes his or her phone number.
+      //use the req.user.id to get fresh user data
+      //this req.user.id persists thanks to passport using session so -  when using this route (in fact all of the user
+      // data persits) we have to go get the user's phone number because we offer the user the opportunity to update phone number.
+
       db.User.findOne({
         where: {
           id: req.user.id

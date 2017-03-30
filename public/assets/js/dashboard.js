@@ -81,6 +81,9 @@ function updateReminder(reminder) {
 function handleFormSubmit(event){
     event.preventDefault();
 
+  
+
+
     if ($("#remind").attr("data-mode")==="create") {
 
       var newReminder = {
@@ -214,28 +217,27 @@ $(document).ready(function() {
 
   $("#user-maintenance").on("click", function(){
      // window.location.href = "/user-maintenance?user_id=" + userId; don't need to send the user id to user-maintenance
-     // passport is holding on the the user info for us
+     // html page 
      window.location.href = "/user-maintenance";
   });
 
 
   $(document).on("click", ".delete", function(e){
-        e.preventDefault();
-       deleteReminder($(this).attr("data-id"));
-      });
+    e.preventDefault();
+    deleteReminder($(this).attr("data-id"));
+  });
 
   $(document).on("click", ".edit", function(e){
-        e.preventDefault();
-        $("#remind").attr("data-mode", "update").text("Update")
-        $("#mode-title").text("update");
-        editReminder($(this).attr("data-id"));
-      });
+    e.preventDefault();
+    $("#remind").attr("data-mode", "update").text("Update")
+    $("#mode-title").text("update");
+    editReminder($(this).attr("data-id"));
+  });
   
-  $(document).on("dblclick", ".task-item", function(){
-        
-        clearSubmitForm();
-        messageInput.val($(this).text());
-      });
+  $(document).on("dblclick", ".task-item", function(){   
+    clearSubmitForm();
+    messageInput.val($(this).text());
+  });
 
 
 });

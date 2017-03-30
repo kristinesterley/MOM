@@ -38,7 +38,7 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-      // include: [db.User]
+      // include: [db.User]  don't need ths here
     }).then(function(dbReminders) {
       
       res.json(dbReminders);

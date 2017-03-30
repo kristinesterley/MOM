@@ -53,7 +53,7 @@ module.exports = function(sequelize, DataTypes) {
     // Hooks are automatic methods that run during various phases of the User Model lifecycle
     // In this case, before a User is created, we will automatically hash their password and
     // before a User password it updated, automatically hash the new password
-    // NOTE: beforeUpdate did not work here, but beforeBulkUpdate does!
+    // NOTE: beforeUpdate does not work here, but beforeBulkUpdate does!
         hooks: {
           beforeBulkUpdate: function(user) {
             if (user.attributes.password){

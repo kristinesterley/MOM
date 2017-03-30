@@ -15,33 +15,34 @@
 <!-- login form -->
 <form class="login">
 	<!-- Name -->
-    	<input type="text" class="form-control" id="name-input" placeholder="Name">
+    	<input type="text" class="form-control login" id="name-input" placeholder="Name">
    	<br>
  	<!-- Password -->
-        <input type="password" class="form-control" id="password-input" placeholder="Password">
+        <input type="password" class="form-control login" id="password-input" placeholder="Password">
     <br>
-    <button type="submit" class="btn">Login</button>
+    <button type="submit" class="btn btn-login">Login</button>
 </form>
 
-<p> &nbsp; No login? <br><button id="altSignUpBtn" class="btn">Sign up</button></p>
+<button id="altSignUpBtn" class="btn">Sign up</button>
 </div><!-- greet -->
 
 
 <!-- sign up alt -->
 <div id="signupModal" class="modal">
 	<div class="modal-content">
-		<span class="close">&times;</span>
+		<span class="close signup">&times;</span>
 		 <form class="signup">
             <!-- Name -->
-            	<input type="text" class="form-control" id="name-signup-input" placeholder="Name">
+            	<input type="text" class="form-control signupInput" id="name-signup-input" placeholder="Name">
             <br>
             <!-- Password -->
-            	<input type="password" class="form-control" id="password-signup-input" placeholder="Password">
+            	<input type="password" class="form-control signupInput" id="password-signup-input" placeholder="Password">
             <br>
             <!-- Number -->
             	<!-- title='Phone Number (Format: (999)999-9999)' -->
             	<!-- pattern='[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}' -->
-				<input type='tel' class='form-control' id="phone-signup-input" name='phone'  placeholder="(888)888-8888"> 
+				<input type='tel' class='form-control signupInput' id="phone-signup-input" name='phone'  placeholder="(888)888-8888"> 
+            <br>
             <br>
           <button type="submit" id="signUpBtn" class="btn">Sign Up</button>
         </form>
@@ -54,6 +55,16 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <p>Invalid user name or password.</p>
+    </div>
+</div><!-- end modal div -->
+
+<!-- modal for invalid user name or password -->
+<div id="waitModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <p>Check for a text message from MOM.</p>
+        <p>You must reply before you can log in.</p>
+
     </div>
 </div><!-- end modal div -->
 

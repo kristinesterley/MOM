@@ -18,7 +18,6 @@ We are currently in testing phone. The final application is not available to the
 The list of technologies and tools used to complete this project is below.
 
 HTML
-
 CSS
 JavaScript
 jQuery

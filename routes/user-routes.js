@@ -21,7 +21,7 @@ module.exports = function(app) {
         if (dbUser.verified){
           res.json("/dashboard");
         }
-          res.json({});
+          // res.json({});
  
         });
 

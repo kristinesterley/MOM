@@ -1,13 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
   var Reminder = sequelize.define("Reminder", {
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-      validate: {
-        len: [1]
-      }
-    },
-    body: {
+    message: {
       type: DataTypes.STRING,
       allowNull: false,
       validate: {
@@ -15,7 +8,7 @@ module.exports = function(sequelize, DataTypes) {
       }
     }, 
     begin_date: {
-      type: DataTypes.DATEONLY,
+      type: DataTypes.DATE,
       allowNull: false,
       validate: {
         isDate:true
@@ -23,12 +16,12 @@ module.exports = function(sequelize, DataTypes) {
     },
     begin_time: {
       type: DataTypes.TIME,
-      allowNull: false,
+      allowNull: false
     },
     frequency: {
-      type: DataTypes.TIME,
+      type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: 0      
+      defaultValue: "once"      
     },
   },
  
@@ -36,7 +29,7 @@ module.exports = function(sequelize, DataTypes) {
       // We're saying that we want User to have Reminders
       classMethods: {
         associate: function(models) {
-          // An Author (foreignKey) is required or a Post can't be made
+          // A User (foreignKey) is required or a Reminder can't be made
           Reminder.belongsTo(models.User, {
             foreignKey: {
               allowNull: false
@@ -49,7 +42,5 @@ module.exports = function(sequelize, DataTypes) {
   );
     
    
-    // freezeTableName: true,
-  
   return Reminder;
 };

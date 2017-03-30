@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MOM</title>
+
+  <!-- Link to the jQuery Library -->
+  <script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+
+       <h1 class="text-center">User Maintenance</h1>
+
+
+		<h2>User Name: <span class="user-name"></span></h2>
+        <form>
+            <br>
+            <!-- Password -->
+            	<input type="password" class="form-control" id="password-input" placeholder="Password">
+            <br>
+            <!-- Number -->
+            	<!-- title='Phone Number (Format: (999)999-9999)' -->
+            	<!-- pattern='[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}' -->
+				<input type='tel' class='form-control' id="phone-input" name='phone'  placeholder="(888)888-8888"> 
+            <br>
+          <button type="button" class="btn btn-default" id="change-password">Change Password</button>
+          <button type="button" class="btn btn-default" id="change-phone">Change Phone Number</button>
+          <button type="button" class="btn btn-default" id="cancel">Exit</button>
+          <button type="button" class="btn btn-default" id="delete">Delete User Account</button>
+
+        </form>
+
+        <br><br>
+
+        <p id="message"></p>
+
+
+  <script type="text/javascript" src="assets/js/user-maintenance.js"></script>
+
+</body>
+</html>

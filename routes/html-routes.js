@@ -1,3 +1,4 @@
+
 // Requiring path to so we can use relative routes to our HTML files
 var path = require("path");
 
@@ -22,26 +23,15 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname + "/../public/index.html"));
   });
 
-  // Here we've add our isAuthenticated middleware to this route.
-  // If a user who is not logged in tries to access this route they will be redirected to the signup page
-  //"/dashboard", isAuthenticated, (removed for now to navigate dashboard)
-  //this will only work on node server when testing
+
   app.get("/dashboard", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname + "/../public/dashboard.html"));
+
   });
 
-  //create a new reminder
-  app.get("/dashboard/create", function(req, res) {
-    res.sendFile(path.join(__dirname + "/../public/create.html"));
+  app.get("/user-maintenance", isAuthenticated, function(req,res){
+    res.sendFile(path.join(__dirname + "/../public/user-maintenance.html"));
   });
 
-  //manage reminders
-  app.get("/dashboard/manage", function(req, res) {
-    res.sendFile(path.join(__dirname + "/../public/manage.html"));
-  });
-
-  //resources page
-  app.get("/dashboard/resources", function(req, res) {
-    res.sendFile(path.join(__dirname + "/../public/resources.html"));
-  });  
-};
+ 
+ };

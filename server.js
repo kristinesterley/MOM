@@ -24,21 +24,14 @@ app.use(passport.session());
 // Static directory
 app.use(express.static("public"));
 
-// Set Handlebars.
-// var exphbs = require("express-handlebars");
 
-// app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-// app.set("view engine", "handlebars");
-
-// Routes =============================================================
-
-
-// require("./routes/reminder-routes.js")(app);
+require("./routes/reminder-routes.js")(app);
 require("./routes/user-routes.js")(app);
 require("./routes/html-routes.js")(app);
+require("./routes/task-routes.js")(app);
 
 // Syncing our sequelize models and then starting our express app
-db.sequelize.sync({force:true}).then(function() {
+db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
     console.log("App listening on PORT " + PORT);
   });

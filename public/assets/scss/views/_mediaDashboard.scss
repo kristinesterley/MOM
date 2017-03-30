@@ -48,3 +48,53 @@
 	left: 71%;
 }
 }
+
+
+@media screen and (min-width: 900px) {
+
+#create {
+	position: absolute;
+	top: 20%;
+	left: 13%;
+	overflow-y: auto;
+	text-align: center;
+}
+
+#manage {
+	position: absolute;
+	top: 20%;
+	left: 53%;
+	text-align: center;
+	overflow: auto;
+}
+
+#account {
+	position: absolute;
+	top: 130%;
+	left: 65%;
+}
+
+#resrc {
+	background-color: #eaffd6;
+	position: absolute;
+	top: 115%;
+	left: 13%;
+	margin-bottom: 20px;
+	overflow: auto;
+}
+
+#templates {
+	position: absolute;
+	top: 70%;
+	left: 13%;
+	margin-bottom: 20px;
+	text-align: center;
+	overflow: auto;
+}
+
+.dashDivhelp {
+	position: absolute;
+	top: 115%;
+	left: 73%;
+}
+}

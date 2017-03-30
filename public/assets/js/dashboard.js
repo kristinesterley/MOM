@@ -207,22 +207,21 @@ $(document).ready(function() {
 
 
   $(document).on("click", ".delete", function(e){
-        e.preventDefault();
-       deleteReminder($(this).attr("data-id"));
-      });
+    e.preventDefault();
+    deleteReminder($(this).attr("data-id"));
+  });
 
   $(document).on("click", ".edit", function(e){
-        e.preventDefault();
-        $("#remind").attr("data-mode", "update").text("Update")
-        $("#mode-title").text("update");
-        editReminder($(this).attr("data-id"));
-      });
+    e.preventDefault();
+    $("#remind").attr("data-mode", "update").text("Update")
+    $("#mode-title").text("update");
+    editReminder($(this).attr("data-id"));
+  });
   
-  $(document).on("dblclick", ".task-item", function(){
-        
-        clearSubmitForm();
-        messageInput.val($(this).text());
-      });
+  $(document).on("dblclick", ".task-item", function(){   
+    clearSubmitForm();
+    messageInput.val($(this).text());
+  });
 
 
 });

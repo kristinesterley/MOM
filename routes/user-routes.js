@@ -45,9 +45,10 @@ module.exports = function(app) {
       res.json({});
     }
     else {
-      //otherwise, use the req.user.id to get fresh user data
-      //this req.user.id seems to persist when using this route, in fact all of the user
-      // data persits, which is why we have to go get it again in case the user changes his or her phone number.
+      //use the req.user.id to get fresh user data
+      //this req.user.id persists thanks to passport using session so -  when using this route (in fact all of the user
+      // data persits) we have to go get the user's phone number because we offer the user the opportunity to update phone number.
+
       db.User.findOne({
         where: {
           id: req.user.id

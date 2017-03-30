@@ -73,11 +73,11 @@ function updatePhone(){
 }
 
 
-
+//begin code execution here
   
 $(document).ready(function() {
+	
 	showUserData();
-
 	$("#delete").on("click", deleteUserAccount);
 	$("#change-password").on("click", updatePassword);
 	$("#cancel").on("click", function(e){
@@ -86,15 +86,5 @@ $(document).ready(function() {
 	});
 	$("#change-phone").on("click", updatePhone);
 
-
-  // if (url.indexOf("?user_id=") !== -1) {
-  //   userId = url.split("=")[1];
-  //   alert("userID pulled from url :" + userId);
-  //   getUser(userId);
-  // }
-  // // If there's no authorId we just get all posts as usual
-  // else {
-  //   alert("error occured");
-  // }
 
 });

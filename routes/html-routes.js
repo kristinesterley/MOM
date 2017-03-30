@@ -7,10 +7,6 @@ var isAuthenticated = require("../config/middleware/isAuthenticated");
 
 module.exports = function(app) {
 
-  app.get("/out", function(req, res){
-    res.sendFile(path.join(__dirname + "/../public/index.html"));
-  })
-
   app.get("/", function(req, res) {
     // If the user already has an account send them to the dashboard page
     if (req.user) {

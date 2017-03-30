@@ -31,7 +31,7 @@ module.exports = function(app) {
       client.messages.create({
         to: num,
         from: "+12409492233", //this is the number assigned to this app by twilio
-        message: "Welcome to MOM, the Memory Organization Module! Reply with 'start' to start recieving reminders"
+        body: "Welcome to MOM, the Memory Organization Module! Reply with 'start' to start recieving reminders"
       }).then(function(err, message){
         if(err){console.log(err);}
         else{

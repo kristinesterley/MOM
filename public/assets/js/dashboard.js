@@ -68,6 +68,9 @@ function updateReminder(reminder) {
 function handleFormSubmit(event){
     event.preventDefault();
 
+  
+
+
     if ($("#remind").attr("data-mode")==="create") {
 
       var newReminder = {
@@ -201,7 +204,7 @@ $(document).ready(function() {
 
   $("#user-maintenance").on("click", function(){
      // window.location.href = "/user-maintenance?user_id=" + userId; don't need to send the user id to user-maintenance
-     // passport is holding on the the user info for us
+     // html page 
      window.location.href = "/user-maintenance";
   });
 

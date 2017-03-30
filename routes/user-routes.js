@@ -11,7 +11,25 @@ module.exports = function(app) {
     // So we're sending the user back the route to the dashboard page because the redirect will happen on the front end
     // They won't get this or even be able to access this page if they aren't authed
 
-    res.json("/dashboard");
+    //here we need to make sure that the user has verified the phone number before allowing them in
+
+      db.User.findOne({
+        where: {
+          name: req.body.name
+        }
+      }).then (function(dbUser){
+        if (dbUser.verified){
+          res.json("/dashboard");
+        }
+        //else do nothing?
+ 
+        });
+
+
+
+
+
+    // res.json("/dashboard");
 
   });
 

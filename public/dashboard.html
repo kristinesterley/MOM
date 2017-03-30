@@ -37,14 +37,14 @@
     <h2 class="dashHeader" id="mode-title">create</h2>
     <p class='formfield remInput reminder'>
     <label class="remLabel" for="reminder"></label>
-    <textarea rows='2' cols='32' class='form-control message' name='reminder' placeholder='your reminder here...'></textarea>
+    <textarea required rows='2' cols='32' class='form-control message' name='reminder' placeholder='your reminder here...'></textarea>
     </p>
 
     <!-- date -->
     <p class='remInput date'>
     <label class="remLabel" for="day">START DATE</label><br>
 
-    <input type='date' class='form-control' name='begin-date' placeholder="mm/dd/yy">
+    <input required type='date' class='form-control' name='begin-date' placeholder="mm/dd/yy">
 
     </p>
 
@@ -53,7 +53,7 @@
     <!-- time -->
     <p class='remInput time'>
     <label class="remLabel" for='when'>TIME</label><br>
-    <input type='time' class='form-control' name='when'>
+    <input required type='time' class='form-control' name='when'>
     </p>
 
     <!-- frequency -->

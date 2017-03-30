@@ -22,9 +22,9 @@ CSS
 JavaScript
 jQuery
 Passport
-Mysql
+MySQL
 Sequelize
-Schedue
+Schedule
 Twilio
 
 
@@ -32,7 +32,7 @@ Contributors
 
 Chloe Corrigan - Front end, design.
 Ilona Fleischer - Node Schedule, Twilio.
-Kristin Esterley - Mysql, Passport, Sequelize.
+Kristin Esterley - MySQL, Passport, Sequelize.
 
 
 Future Work

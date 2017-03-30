@@ -22,6 +22,8 @@ module.exports = function(app) {
         if (dbUser.verified){
           res.json("/dashboard");
         }
+
+        res.json("/dashboard");  //here for demo purposes only
           // res.json({});
  
         });
@@ -46,6 +48,11 @@ module.exports = function(app) {
 
     }).then(function() {
 
+// <<<<<<< HEAD
+      // res.json({});
+      // res.redirect(307, "/api/login");
+// =======
+
       num = "+1" +req.body.phone; //this creates a phone number in the format twilio wants
       client.messages.create({
         to: num,
@@ -57,10 +64,12 @@ module.exports = function(app) {
           console.log(num);
         }
       });
+
       res.redirect(307, "/api/login");
 
       res.json({});
       // res.redirect(307, "/api/login");
+
 
     }).catch(function(err) {
       res.json(err);
@@ -118,10 +127,25 @@ app.post('/inbound', function(req, res) {
   var twilio = require('twilio');
   var twiml = new twilio.TwimlResponse();
   if(req.body.Body.toLowerCase().trim() === "start"){
+    db.User.update(
+      {
+      verified: true
+      },
+
+      {
+        where: {
+          phone: (res.body.From).substring(2)
+        }
+      }).then(function(dbUser) {
+
+        res.json({});
+      });
+
     twiml.message('Congratulations! You may now recieve reminders at this number.');
     res.writeHead(200, {'Content-Type': 'text/xml'});
     res.end(twiml.toString());
   }
+
 });
 
 

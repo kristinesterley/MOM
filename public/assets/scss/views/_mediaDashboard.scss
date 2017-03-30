@@ -1,0 +1,50 @@
+/*Responsiveness Dashboard*/
+
+@media screen and (min-width: 1140px) {
+
+#create {
+	position: absolute;
+	top: 20%;
+	left: 17%;
+	overflow-y: auto;
+	text-align: center;
+}
+
+#manage {
+	position: absolute;
+	top: 20%;
+	left: 54%;
+	text-align: center;
+	overflow: auto;
+}
+
+#account {
+	position: absolute;
+	top: 125%;
+	left: 63%;
+}
+
+#resrc {
+	background-color: #eaffd6;
+	position: absolute;
+	top: 110%;
+	left: 17%;
+	margin-bottom: 20px;
+	overflow: auto;
+}
+
+#templates {
+	position: absolute;
+	top: 68%;
+	left: 17%;
+	margin-bottom: 20px;
+	text-align: center;
+	overflow: auto;
+}
+
+.dashDivhelp {
+	position: absolute;
+	top: 110%;
+	left: 71%;
+}
+}

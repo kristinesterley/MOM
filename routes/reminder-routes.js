@@ -60,12 +60,7 @@ module.exports = function(app) {
         num += data.User.phone;
         console.log(num);
         console.log(req.body);
-          //ilona's code
-          // console.log("&&&&&&&&&&&&&&&&&&&&&&");
-          // console.log(data);
-          // console.log(data.User.phone);
-          // console.log(data.User.id);
-          // console.log(data.id); //reminder id
+
       });
       var rule = "+++++++++++++++++++++++++++++++++++++++++++++++++++++++++";
     if(req.body.frequency==="once"){
@@ -101,8 +96,7 @@ module.exports = function(app) {
 
 
 
-      // Ilona - I know that you want to put the schedule code here, but the user's phone number is not accessible here
-
+      
       console.log(dbReminder.id);
 
       res.json(dbReminder);
@@ -122,8 +116,6 @@ module.exports = function(app) {
         id: req.params.id
       }
     }).then(function(dbReminders) {
-
-      // Ilona - don't know how you will specify which text needs to be deleted from the schedule
 
 
       res.json(dbReminders);

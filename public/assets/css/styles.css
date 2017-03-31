@@ -750,12 +750,18 @@ li {
   color: #f4472b;
   border: 1px solid #f4472b; }
 
+#message {
+  position: absolute;
+  top: 92%;
+  left: 20%;
+  color: #eaffd6; }
+
 /*Responsiveness Dashboard*/
-@media screen and (min-width: 1140px) {
+@media screen and (max-width: 1280px) {
   #create {
     position: absolute;
     top: 20%;
-    left: 17%;
+    left: 10%;
     overflow-y: auto;
     text-align: center; }
 
@@ -768,28 +774,99 @@ li {
 
   #account {
     position: absolute;
-    top: 125%;
-    left: 63%; }
+    top: 130%;
+    left: 66%; }
 
   #resrc {
     background-color: #eaffd6;
     position: absolute;
-    top: 110%;
-    left: 17%;
+    top: 115%;
+    left: 10%;
     margin-bottom: 20px;
     overflow: auto; }
 
   #templates {
     position: absolute;
-    top: 68%;
-    left: 17%;
+    top: 70%;
+    left: 10%;
     margin-bottom: 20px;
     text-align: center;
     overflow: auto; }
 
   .dashDivhelp {
     position: absolute;
-    top: 110%;
-    left: 71%; } }
+    top: 115%;
+    left: 75%; } }
+@media screen and (max-width: 1280px) {
+  .user-name {
+    position: absolute;
+    top: 10%;
+    left: 38%;
+    font-family: Orbitron;
+    padding: 5px;
+    font-size: 40px;
+    color: #f4472b;
+    background: #282828; }
+
+  #password-inputUM {
+    position: absolute;
+    top: 25%;
+    left: 29%; }
+
+  #phone-input {
+    position: absolute;
+    top: 35%;
+    left: 29%; }
+
+  .buttonUMContainer {
+    position: absolute;
+    top: 50%;
+    left: 31%;
+    text-align: center; }
+
+  .btn-um {
+    font-family: Space Mono;
+    background: #8b8b8b;
+    padding: 5px;
+    color: #282828;
+    border: 1px solid #282828; }
+
+  .btn-um:hover {
+    cursor: pointer; }
+
+  #change-password:hover {
+    background: #eaffd6;
+    color: #f4472b;
+    border: 1px solid #f4472b; }
+
+  #change-phone:hover {
+    background: #eaffd6;
+    color: #f4472b;
+    border: 1px solid #f4472b; }
+
+  #cancel {
+    margin-top: 30px;
+    border: 1px solid #282828; }
+
+  #deleteact {
+    margin-top: 30px;
+    font-size: 14px;
+    border: 1px solid #282828; }
+
+  #deleteact:hover {
+    background: #f4472b;
+    border: 1px solid #eaffd6;
+    color: #eaffd6; }
+
+  #cancel:hover {
+    background: #eaffd6;
+    color: #f4472b;
+    border: 1px solid #f4472b; }
+
+  #message {
+    position: absolute;
+    top: 92%;
+    left: 20%;
+    color: #eaffd6; } }
 
 /*# sourceMappingURL=styles.css.map */

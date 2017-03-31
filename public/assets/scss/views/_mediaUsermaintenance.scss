@@ -1,38 +1,9 @@
-/*user maintenance*/
+@media screen and (max-width: 1280px) {
 
-.maintContainer {
-	position: relative;
-	width: 50%;
-	height: 500px;
-	background: #282828;
-	margin-top: 100px;
-	margin-left: 25%;
-	border: 2px solid #eaffd6;
-	box-shadow: 4px 4px 1px #eaffd6;
-}
-
-.editact::-webkit-input-placeholder {
-	color: #eaffd6;
-	font-size: 18px;
-	font-family: Space Mono;
-}
-
-.editact {
-	color: #eaffd6;
-	font-family: Space Mono;
-	font-size: 18px;
-	background: #282828;
-	outline: none;
-	border: 1px solid #eaffd6;
-	box-shadow: 2px 2px 1px;
-	margin: 5px;
-	padding: 5px;
-}
-
-.user-name {
+	.user-name {
 	position: absolute;
 	top: 10%;
-	left: 40%;
+	left: 38%;
 	font-family: Orbitron;
 	padding: 5px;
 	font-size: 40px;
@@ -43,20 +14,20 @@
 #password-inputUM {
 	position: absolute;
 	top: 25%;
-	left: 33%;
+	left: 29%;
 }
 
 #phone-input {
 	position: absolute;
 	top: 35%;
-	left: 33%;
+	left: 29%;
 
 }
 
 .buttonUMContainer {
 	position: absolute;
 	top: 50%;
-	left: 36%;
+	left: 31%;
 	text-align: center;
 }
 
@@ -119,4 +90,5 @@
 	top: 92%;
 	left: 20%;
 	color: #eaffd6;
+}
 }
